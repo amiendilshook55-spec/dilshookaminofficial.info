@@ -174,7 +174,6 @@ font-weight:700;
 }
 
 /* ================= WEBSITE VIDEOS ================= */
-/* TWO PER ROW ON PC */
 .da-sitegrid{
 display:grid;
 grid-template-columns:repeat(2,1fr);
@@ -206,26 +205,28 @@ margin-right:auto;
 text-align:center;
 }
 
-/* ================= POSTER CAROUSEL ================= */
+/* ================= POSTER CAROUSEL FIXED ================= */
 .da-carousel{
 overflow:hidden;
 position:relative;
+width:100%;
 }
 
 .da-track{
 display:flex;
 gap:30px;
-animation:scroll 28s linear infinite;
 width:max-content;
+animation:da-scroll 45s linear infinite;
 }
 
 .da-track img{
 height:320px;
 border-radius:18px;
 cursor:pointer;
+flex-shrink:0;
 }
 
-@keyframes scroll{
+@keyframes da-scroll{
 0%{transform:translateX(0);}
 100%{transform:translateX(-50%);}
 }
@@ -351,22 +352,27 @@ I developed the website for SMG Logistics & Transport Company, one of the most r
 <div class="da-carousel">
 <div class="da-track">
 
+<!-- ALL IMAGES -->
 <img src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength__Global_Reach_-1_2__jpg.jpg?v=1772035275">
 <img src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength._Global_Reach.-1_14_.jpg_1.jpg?v=1772035274">
 <img src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength__Global_Reach_-1_1__jpg.jpg?v=1772035274">
 <img src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength__Global_Reach_-1_3__jpg.jpg?v=1772035274">
 <img src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength__Global_Reach_-1_16__jpg.jpg?v=1772035274">
 <img src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/SMG_SAUDI_FOUND_DAY_jpg.jpg?v=1772035274">
-
-<!-- NEW THREE POSTERS -->
 <img src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength._Global_Reach.-1_13_.jpg_1.jpg?v=1772035274">
 <img src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength._Global_Reach.-1_5_.jpg_1.jpg?v=1772035274">
 <img src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength._Global_Reach.-1_8_.jpg_1.jpg?v=1772035274">
 
-<!-- duplicates for seamless infinite loop -->
+<!-- DUPLICATED SAME ORDER FOR PERFECT LOOP -->
 <img src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength__Global_Reach_-1_2__jpg.jpg?v=1772035275">
 <img src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength._Global_Reach.-1_14_.jpg_1.jpg?v=1772035274">
 <img src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength__Global_Reach_-1_1__jpg.jpg?v=1772035274">
+<img src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength__Global_Reach_-1_3__jpg.jpg?v=1772035274">
+<img src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength__Global_Reach_-1_16__jpg.jpg?v=1772035274">
+<img src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/SMG_SAUDI_FOUND_DAY_jpg.jpg?v=1772035274">
+<img src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength._Global_Reach.-1_13_.jpg_1.jpg?v=1772035274">
+<img src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength._Global_Reach.-1_5_.jpg_1.jpg?v=1772035274">
+<img src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength._Global_Reach.-1_8_.jpg_1.jpg?v=1772035274">
 
 </div>
 </div>
