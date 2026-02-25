@@ -14,11 +14,12 @@
 
 /* ===== MAIN ===== */
 #da-premium{
-background:#fff;
+background:transparent;
 color:#0b0b0b;
 font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
 overflow:hidden;
 position:relative;
+z-index:1;
 }
 
 /* ===== FIXED VIDEO BG ===== */
@@ -27,7 +28,7 @@ position:relative;
 position:fixed;
 top:0; left:0;
 width:100%; height:100%;
-z-index:-1;
+z-index:0;
 overflow:hidden;
 }
 
@@ -37,7 +38,15 @@ height:100%;
 object-fit:cover;
 }
 
-/* desktop video */
+/* overlay for readability */
+.da-video-bg::after{
+content:"";
+position:absolute;
+inset:0;
+background:rgba(255,255,255,.35);
+}
+
+/* desktop/mobile video */
 .da-desktop-video{display:block;}
 .da-mobile-video{display:none;}
 
@@ -46,10 +55,21 @@ object-fit:cover;
 .da-mobile-video{display:block;}
 }
 
+/* ===== GLASS SECTIONS ===== */
+
+.da-wrap,
+.da-skills,
+.da-sites,
+.da-posters{
+background:rgba(255,255,255,.88);
+backdrop-filter:blur(6px);
+border-radius:24px;
+margin:40px auto;
+max-width:1200px;
+}
+
 /* HERO CONTAINER */
 .da-wrap{
-max-width:1100px;
-margin:auto;
 padding:100px 25px 70px;
 text-align:center;
 }
@@ -108,7 +128,7 @@ pointer-events:none;
 @keyframes ripple{to{transform:scale(4);opacity:0;}}
 
 /* SKILLS */
-.da-skills{padding:80px 20px;background:#fafafa;}
+.da-skills{padding:80px 20px;}
 .da-grid{max-width:1000px;margin:auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:26px;margin-top:40px;}
 .da-card{background:#fff;padding:32px;border-radius:18px;box-shadow:0 10px 25px rgba(0,0,0,.06);transition:.35s;}
 .da-card:hover{transform:translateY(-8px);box-shadow:0 20px 45px rgba(0,0,0,.12);}
@@ -139,14 +159,12 @@ transition:.3s;
 .da-track a img{height:280px;border-radius:16px;box-shadow:0 14px 35px rgba(0,0,0,.15);}
 @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
-/* ===== SCROLL FADE ANIMATION ===== */
-
+/* ===== SCROLL FADE ===== */
 .da-fade{
 opacity:0;
 transform:translateY(40px);
 transition:all .9s cubic-bezier(.2,.65,.2,1);
 }
-
 .da-fade.visible{
 opacity:1;
 transform:translateY(0);
@@ -166,15 +184,13 @@ transform:translateY(0);
 </style>
 
 
-<!-- FIXED BACKGROUND VIDEO -->
+<!-- FIXED VIDEO -->
 <div class="da-video-bg">
 
-<!-- DESKTOP VIDEO (328.mp4) -->
 <video class="da-desktop-video" autoplay muted loop playsinline>
 <source src="https://cdn.shopify.com/videos/c/o/v/e9ad0a2b6e1847db8b7e807296edd328.mp4">
 </video>
 
-<!-- MOBILE VIDEO -->
 <video class="da-mobile-video" autoplay muted loop playsinline>
 <source src="https://cdn.shopify.com/videos/c/o/v/2140dfc0ebf94e0ab1d2f67bc2227e71.mp4">
 </video>
@@ -209,20 +225,18 @@ online presence and recognition.
 <div class="da-badge">📍 Jeddah, Saudi Arabia — Working with Saudi & international companies</div>
 
 <div class="da-contact">
-
 <a href="tel:+966534121598" class="da-btn">Call</a>
 <a href="https://wa.me/966534121598" class="da-btn">WhatsApp</a>
 <a href="mailto:amiendilshook55@gmail.com" class="da-btn alt">Email</a>
 <a href="https://www.linkedin.com/in/dilshookaminofficial/" target="_blank" class="da-btn alt">LinkedIn</a>
-
 </div>
+
 </div>
 
 
 <!-- SKILLS -->
 <section class="da-skills da-fade">
 <h2 style="text-align:center;font-size:34px;">My Expertise</h2>
-
 <div class="da-grid">
 <div class="da-card"><h3>WordPress Development</h3></div>
 <div class="da-card"><h3>Shopify Management</h3></div>
@@ -238,29 +252,13 @@ online presence and recognition.
 
 <div class="da-sitegrid">
 
-<a href="https://smgksa.net/" target="_blank" class="da-site">
-<video autoplay muted loop playsinline>
-<source src="https://cdn.shopify.com/videos/c/o/v/822af1d6dd9e4795950e263b93c90cb2.mp4">
-</video>
-</a>
+<a href="https://smgksa.net/" target="_blank" class="da-site"><video autoplay muted loop playsinline><source src="https://cdn.shopify.com/videos/c/o/v/822af1d6dd9e4795950e263b93c90cb2.mp4"></video></a>
 
-<a href="https://smgksa.net/" target="_blank" class="da-site">
-<video autoplay muted loop playsinline>
-<source src="https://cdn.shopify.com/videos/c/o/v/4bd738842e44425384046a1b2a1d19c1.mp4">
-</video>
-</a>
+<a href="https://smgksa.net/" target="_blank" class="da-site"><video autoplay muted loop playsinline><source src="https://cdn.shopify.com/videos/c/o/v/4bd738842e44425384046a1b2a1d19c1.mp4"></video></a>
 
-<a href="https://smgksa.net/" target="_blank" class="da-site">
-<video autoplay muted loop playsinline>
-<source src="https://cdn.shopify.com/videos/c/o/v/af5106c60e264d16be9e381eab172b78.mp4">
-</video>
-</a>
+<a href="https://smgksa.net/" target="_blank" class="da-site"><video autoplay muted loop playsinline><source src="https://cdn.shopify.com/videos/c/o/v/af5106c60e264d16be9e381eab172b78.mp4"></video></a>
 
-<a href="https://smgksa.net/" target="_blank" class="da-site">
-<video autoplay muted loop playsinline>
-<source src="https://cdn.shopify.com/videos/c/o/v/ac33eb5d108e440b8ee9bb295e0c02e6.mp4">
-</video>
-</a>
+<a href="https://smgksa.net/" target="_blank" class="da-site"><video autoplay muted loop playsinline><source src="https://cdn.shopify.com/videos/c/o/v/ac33eb5d108e440b8ee9bb295e0c02e6.mp4"></video></a>
 
 </div>
 </section>
@@ -271,26 +269,20 @@ online presence and recognition.
 <h2 style="text-align:center;font-size:34px;">Design Works</h2>
 
 <div class="da-track">
-
 <a href="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength__Global_Reach_-1_2__jpg.jpg?v=1772035275" target="_blank"><img src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength__Global_Reach_-1_2__jpg.jpg?v=1772035275"></a>
-
 <a href="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength._Global_Reach.-1_14_.jpg_1.jpg?v=1772035274" target="_blank"><img src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength._Global_Reach.-1_14_.jpg_1.jpg?v=1772035274"></a>
-
 <a href="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength__Global_Reach_-1_1__jpg.jpg?v=1772035274" target="_blank"><img src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength__Global_Reach_-1_1__jpg.jpg?v=1772035274"></a>
-
 <a href="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength__Global_Reach_-1_3__jpg.jpg?v=1772035274" target="_blank"><img src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength__Global_Reach_-1_3__jpg.jpg?v=1772035274"></a>
-
 <a href="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength__Global_Reach_-1_16__jpg.jpg?v=1772035274" target="_blank"><img src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength__Global_Reach_-1_16__jpg.jpg?v=1772035274"></a>
-
 <a href="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/SMG_SAUDI_FOUND_DAY_jpg.jpg?v=1772035274" target="_blank"><img src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/SMG_SAUDI_FOUND_DAY_jpg.jpg?v=1772035274"></a>
-
 </div>
+
 </section>
 
 
 <script>
 
-/* ripple click */
+/* ripple */
 document.querySelectorAll(".da-btn").forEach(btn=>{
 btn.addEventListener("click",function(e){
 const c=document.createElement("span");
