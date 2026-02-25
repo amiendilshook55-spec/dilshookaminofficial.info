@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dilshook Amin — Portfolio</title>
+</head>
+
+<body>
+
+<section id="da-premium">
+
+<style>
+
+/* ===== MAIN ===== */
+#da-premium{
+background:#fff;
+color:#0b0b0b;
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+overflow:hidden;
+}
+
+/* HERO CONTAINER */
+.da-wrap{
+max-width:1100px;
+margin:auto;
+padding:100px 25px 70px;
+text-align:center;
+}
+
+/* PHOTO */
+.da-photo{width:190px;margin:auto;opacity:0;transform:translateY(-120px);animation:daDrop 1.2s forwards;}
+.da-photo img{width:100%;border-radius:22px;box-shadow:0 30px 60px rgba(0,0,0,.15);}
+@keyframes daDrop{to{opacity:1;transform:translateY(0)}}
+
+/* TEXT */
+.da-name{font-size:46px;font-weight:700;margin-top:28px;}
+.da-title{font-size:22px;font-weight:600;margin-top:10px;color:#222;}
+.da-desc{max-width:760px;margin:20px auto 0;font-size:18px;line-height:1.7;color:#555;}
+.da-badge{display:inline-block;margin-top:18px;padding:8px 16px;border-radius:30px;background:#f3f3f3;font-weight:600;font-size:14px;}
+
+/* BUTTONS */
+.da-contact{margin-top:32px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+
+.da-btn{
+position:relative;background:#0b0b0b;color:#fff;
+padding:15px 28px;border-radius:12px;
+text-decoration:none;font-weight:600;
+overflow:hidden;transition:.35s;
+}
+
+.da-btn::before{
+content:"";position:absolute;left:0;top:0;width:0;height:100%;
+background:#fff;z-index:-1;transition:.45s;
+}
+
+.da-btn:hover{color:#000;transform:translateY(-4px);box-shadow:0 18px 40px rgba(0,0,0,.22);}
+.da-btn:hover::before{width:100%;}
+
+.da-btn.alt{background:#fff;color:#000;border:2px solid #000;}
+.da-btn.alt::before{background:#000;}
+.da-btn.alt:hover{color:#fff;}
+
+.da-btn span{
+position:absolute;border-radius:50%;transform:scale(0);
+animation:ripple .6s linear;background:rgba(255,255,255,.6);
+pointer-events:none;
+}
+
+@keyframes ripple{to{transform:scale(4);opacity:0;}}
+
+/* SKILLS */
+.da-skills{padding:80px 20px;background:#fafafa;}
+.da-grid{max-width:1000px;margin:auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:26px;margin-top:40px;}
+.da-card{background:#fff;padding:32px;border-radius:18px;box-shadow:0 10px 25px rgba(0,0,0,.06);transition:.35s;}
+.da-card:hover{transform:translateY(-8px);box-shadow:0 20px 45px rgba(0,0,0,.12);}
+
+/* WEBSITE VIDEOS */
+.da-sites{padding:90px 20px;text-align:center;}
+.da-sitegrid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:24px;
+max-width:1200px;
+margin:40px auto 0;
+}
+
+.da-site{
+border-radius:16px;
+overflow:hidden;
+box-shadow:0 14px 35px rgba(0,0,0,.12);
+display:block;
+transition:.3s;
+}
+.da-site:hover{transform:translateY(-6px);}
+.da-site video{width:100%;display:block;}
+
+/* POSTERS */
+.da-posters{padding:80px 0;overflow:hidden;}
+.da-track{display:flex;gap:24px;width:max-content;animation:scroll 35s linear infinite;padding:20px;}
+.da-track a img{height:280px;border-radius:16px;box-shadow:0 14px 35px rgba(0,0,0,.15);}
+@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* MOBILE */
+@media(max-width:900px){
+.da-sitegrid{grid-template-columns:repeat(2,1fr);}
+}
+@media(max-width:600px){
+.da-sitegrid{grid-template-columns:1fr;}
+.da-name{font-size:34px}
+.da-title{font-size:18px}
+.da-photo{width:140px}
+}
+
+</style>
+
+
+<!-- HERO -->
+<div class="da-wrap">
+
+<div class="da-photo">
+<img src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/dilshook_professional.webp?v=1771992777">
+</div>
+
+<h1 class="da-name">Dilshook Amin</h1>
+
+<div class="da-title">
+Website Developer • Designer • SEO Specialist
+</div>
+
+<div class="da-desc">
+I am a professional website developer, designer and SEO specialist based in 
+<b>Saudi Arabia</b>. I help companies build high-quality WordPress and Shopify websites, 
+create marketing designs and improve their online visibility.
+
+I developed the website for <b>SMG Logistics & Transport Company</b> in Saudi Arabia — 
+a prominent logistics company operating across Saudi, GCC and worldwide.  
+Through website development and SEO improvements, I helped strengthen their 
+online presence and recognition.
+</div>
+
+<div class="da-badge">📍 Jeddah, Saudi Arabia — Working with Saudi & international companies</div>
+
+<div class="da-contact">
+
+<a href="tel:+966534121598" class="da-btn">Call</a>
+
+<a href="https://wa.me/966534121598" class="da-btn">WhatsApp</a>
+
+<a href="mailto:amiendilshook55@gmail.com" class="da-btn alt">Email</a>
+
+<a href="https://www.linkedin.com/in/dilshookaminofficial/" target="_blank" class="da-btn alt">LinkedIn</a>
+
+</div>
+
+</div>
+
+
+<!-- SKILLS -->
+<section class="da-skills">
+<h2 style="text-align:center;font-size:34px;">My Expertise</h2>
+
+<div class="da-grid">
+<div class="da-card"><h3>WordPress Development</h3></div>
+<div class="da-card"><h3>Shopify Management</h3></div>
+<div class="da-card"><h3>Graphic Design</h3></div>
+<div class="da-card"><h3>Digital Marketing & SEO</h3></div>
+</div>
+
+</section>
+
+
+<!-- WEBSITE VIDEOS -->
+<section class="da-sites">
+<h2 style="font-size:34px;">Website Projects</h2>
+
+<div class="da-sitegrid">
+
+<a href="https://smgksa.net/" target="_blank" class="da-site">
+<video autoplay muted loop playsinline>
+<source src="https://cdn.shopify.com/videos/c/o/v/822af1d6dd9e4795950e263b93c90cb2.mp4">
+</video>
+</a>
+
+<a href="https://smgksa.net/" target="_blank" class="da-site">
+<video autoplay muted loop playsinline>
+<source src="https://cdn.shopify.com/videos/c/o/v/4bd738842e44425384046a1b2a1d19c1.mp4">
+</video>
+</a>
+
+<a href="https://smgksa.net/" target="_blank" class="da-site">
+<video autoplay muted loop playsinline>
+<source src="https://cdn.shopify.com/videos/c/o/v/af5106c60e264d16be9e381eab172b78.mp4">
+</video>
+</a>
+
+<a href="https://smgksa.net/" target="_blank" class="da-site">
+<video autoplay muted loop playsinline>
+<source src="https://cdn.shopify.com/videos/c/o/v/ac33eb5d108e440b8ee9bb295e0c02e6.mp4">
+</video>
+</a>
+
+</div>
+</section>
+
+
+<!-- POSTERS CLICKABLE -->
+<section class="da-posters">
+<h2 style="text-align:center;font-size:34px;">Design Works</h2>
+
+<div class="da-track">
+
+<a href="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength__Global_Reach_-1_2__jpg.jpg?v=1772035275" target="_blank"><img src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength__Global_Reach_-1_2__jpg.jpg?v=1772035275"></a>
+
+<a href="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength._Global_Reach.-1_14_.jpg_1.jpg?v=1772035274" target="_blank"><img src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength._Global_Reach.-1_14_.jpg_1.jpg?v=1772035274"></a>
+
+<a href="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength__Global_Reach_-1_1__jpg.jpg?v=1772035274" target="_blank"><img src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength__Global_Reach_-1_1__jpg.jpg?v=1772035274"></a>
+
+<a href="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength__Global_Reach_-1_3__jpg.jpg?v=1772035274" target="_blank"><img src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength__Global_Reach_-1_3__jpg.jpg?v=1772035274"></a>
+
+<a href="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength__Global_Reach_-1_16__jpg.jpg?v=1772035274" target="_blank"><img src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength__Global_Reach_-1_16__jpg.jpg?v=1772035274"></a>
+
+<a href="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/SMG_SAUDI_FOUND_DAY_jpg.jpg?v=1772035274" target="_blank"><img src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/SMG_SAUDI_FOUND_DAY_jpg.jpg?v=1772035274"></a>
+
+</div>
+</section>
+
+
+<script>
+
+/* ripple click */
+document.querySelectorAll(".da-btn").forEach(btn=>{
+btn.addEventListener("click",function(e){
+const c=document.createElement("span");
+const r=this.getBoundingClientRect();
+c.style.left=e.clientX-r.left+"px";
+c.style.top=e.clientY-r.top+"px";
+this.appendChild(c);
+setTimeout(()=>c.remove(),600);
+});
+});
+
+</script>
+
+</section>
