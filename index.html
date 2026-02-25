@@ -18,6 +18,32 @@ background:#fff;
 color:#0b0b0b;
 font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
 overflow:hidden;
+position:relative;
+}
+
+/* ===== FIXED VIDEO BG ===== */
+
+.da-video-bg{
+position:fixed;
+top:0; left:0;
+width:100%; height:100%;
+z-index:-1;
+overflow:hidden;
+}
+
+.da-video-bg video{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+/* desktop video */
+.da-desktop-video{display:block;}
+.da-mobile-video{display:none;}
+
+@media(max-width:768px){
+.da-desktop-video{display:none;}
+.da-mobile-video{display:block;}
 }
 
 /* HERO CONTAINER */
@@ -28,9 +54,21 @@ padding:100px 25px 70px;
 text-align:center;
 }
 
-/* PHOTO */
-.da-photo{width:190px;margin:auto;opacity:0;transform:translateY(-120px);animation:daDrop 1.2s forwards;}
-.da-photo img{width:100%;border-radius:22px;box-shadow:0 30px 60px rgba(0,0,0,.15);}
+/* PHOTO ROUND */
+.da-photo{
+width:190px;
+margin:auto;
+opacity:0;
+transform:translateY(-120px);
+animation:daDrop 1.2s forwards;
+}
+
+.da-photo img{
+width:100%;
+border-radius:50%;
+box-shadow:0 30px 60px rgba(0,0,0,.18);
+}
+
 @keyframes daDrop{to{opacity:1;transform:translateY(0)}}
 
 /* TEXT */
@@ -101,6 +139,19 @@ transition:.3s;
 .da-track a img{height:280px;border-radius:16px;box-shadow:0 14px 35px rgba(0,0,0,.15);}
 @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
+/* ===== SCROLL FADE ANIMATION ===== */
+
+.da-fade{
+opacity:0;
+transform:translateY(40px);
+transition:all .9s cubic-bezier(.2,.65,.2,1);
+}
+
+.da-fade.visible{
+opacity:1;
+transform:translateY(0);
+}
+
 /* MOBILE */
 @media(max-width:900px){
 .da-sitegrid{grid-template-columns:repeat(2,1fr);}
@@ -115,8 +166,24 @@ transition:.3s;
 </style>
 
 
+<!-- FIXED BACKGROUND VIDEO -->
+<div class="da-video-bg">
+
+<!-- DESKTOP VIDEO (328.mp4) -->
+<video class="da-desktop-video" autoplay muted loop playsinline>
+<source src="https://cdn.shopify.com/videos/c/o/v/e9ad0a2b6e1847db8b7e807296edd328.mp4">
+</video>
+
+<!-- MOBILE VIDEO -->
+<video class="da-mobile-video" autoplay muted loop playsinline>
+<source src="https://cdn.shopify.com/videos/c/o/v/2140dfc0ebf94e0ab1d2f67bc2227e71.mp4">
+</video>
+
+</div>
+
+
 <!-- HERO -->
-<div class="da-wrap">
+<div class="da-wrap da-fade">
 
 <div class="da-photo">
 <img src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/dilshook_professional.webp?v=1771992777">
@@ -144,20 +211,16 @@ online presence and recognition.
 <div class="da-contact">
 
 <a href="tel:+966534121598" class="da-btn">Call</a>
-
 <a href="https://wa.me/966534121598" class="da-btn">WhatsApp</a>
-
 <a href="mailto:amiendilshook55@gmail.com" class="da-btn alt">Email</a>
-
 <a href="https://www.linkedin.com/in/dilshookaminofficial/" target="_blank" class="da-btn alt">LinkedIn</a>
 
 </div>
-
 </div>
 
 
 <!-- SKILLS -->
-<section class="da-skills">
+<section class="da-skills da-fade">
 <h2 style="text-align:center;font-size:34px;">My Expertise</h2>
 
 <div class="da-grid">
@@ -166,12 +229,11 @@ online presence and recognition.
 <div class="da-card"><h3>Graphic Design</h3></div>
 <div class="da-card"><h3>Digital Marketing & SEO</h3></div>
 </div>
-
 </section>
 
 
 <!-- WEBSITE VIDEOS -->
-<section class="da-sites">
+<section class="da-sites da-fade">
 <h2 style="font-size:34px;">Website Projects</h2>
 
 <div class="da-sitegrid">
@@ -204,8 +266,8 @@ online presence and recognition.
 </section>
 
 
-<!-- POSTERS CLICKABLE -->
-<section class="da-posters">
+<!-- POSTERS -->
+<section class="da-posters da-fade">
 <h2 style="text-align:center;font-size:34px;">Design Works</h2>
 
 <div class="da-track">
@@ -239,6 +301,15 @@ this.appendChild(c);
 setTimeout(()=>c.remove(),600);
 });
 });
+
+/* scroll fade */
+const observer=new IntersectionObserver(entries=>{
+entries.forEach(e=>{
+if(e.isIntersecting){e.target.classList.add("visible");}
+});
+},{threshold:.15});
+
+document.querySelectorAll(".da-fade").forEach(el=>observer.observe(el));
 
 </script>
 
