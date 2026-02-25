@@ -15,8 +15,9 @@
 /* MAIN */
 #da-premium{
 background:transparent;
-color:#fff;
+color:#3b2416; /* dark brown text */
 font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+font-weight:600;
 overflow:hidden;
 position:relative;
 z-index:1;
@@ -30,14 +31,10 @@ width:100%;height:100%;
 z-index:-1;
 overflow:hidden;
 }
-.da-video-bg video{
-width:100%;height:100%;object-fit:cover;
-}
-
-/* darker overlay for readability */
+.da-video-bg video{width:100%;height:100%;object-fit:cover;}
 .da-video-bg:after{
 content:"";position:absolute;inset:0;
-background:rgba(0,0,0,.45);
+background:rgba(255,255,255,.35); /* light overlay for brown text readability */
 }
 
 /* mobile swap */
@@ -48,12 +45,12 @@ background:rgba(0,0,0,.45);
 .da-mobile-video{display:block;}
 }
 
-/* CONTAINERS (NO BACKGROUND) */
+/* CONTAINERS */
 .da-wrap,
 .da-skills,
 .da-sites,
 .da-posters{
-max-width:1200px;
+max-width:1280px;
 margin:auto;
 padding:90px 25px;
 text-align:center;
@@ -64,24 +61,46 @@ text-align:center;
 .da-photo img{
 width:100%;
 border-radius:50%;
-box-shadow:0 30px 60px rgba(0,0,0,.45);
+box-shadow:0 30px 60px rgba(0,0,0,.35);
 }
 
 /* TEXT */
-.da-name{font-size:48px;font-weight:700;margin-top:28px;}
-.da-title{font-size:24px;margin-top:10px;}
-.da-desc{max-width:760px;margin:20px auto 0;font-size:18px;line-height:1.7;color:#eaeaea;}
-.da-badge{margin-top:18px;display:inline-block;font-size:14px;color:#ddd;}
+.da-name{font-size:48px;font-weight:800;margin-top:28px;}
+.da-title{font-size:24px;margin-top:10px;font-weight:700;}
+.da-desc{max-width:760px;margin:20px auto 0;font-size:18px;line-height:1.7;color:#4a2f1d;font-weight:600;}
+.da-badge{margin-top:18px;display:inline-block;font-size:14px;color:#4a2f1d;font-weight:700;}
 
-/* BUTTONS */
+/* BUTTONS PREMIUM HOVER */
 .da-contact{margin-top:32px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+
 .da-btn{
-background:#fff;color:#000;
-padding:15px 28px;border-radius:12px;
-text-decoration:none;font-weight:600;
-transition:.3s;
+position:relative;
+background:#3b2416;
+color:#fff;
+padding:15px 30px;
+border-radius:12px;
+text-decoration:none;
+font-weight:700;
+overflow:hidden;
+transition:.35s;
 }
-.da-btn:hover{transform:translateY(-4px);}
+
+.da-btn::before{
+content:"";
+position:absolute;
+left:0;top:0;
+width:0;height:100%;
+background:#fff;
+z-index:-1;
+transition:.45s;
+}
+
+.da-btn:hover{
+color:#3b2416;
+transform:translateY(-4px);
+box-shadow:0 18px 40px rgba(0,0,0,.2);
+}
+.da-btn:hover::before{width:100%;}
 
 /* SKILLS */
 .da-grid{
@@ -92,32 +111,42 @@ gap:26px;
 }
 .da-card{
 padding:34px 20px;
-border:1px solid rgba(255,255,255,.25);
+border:2px solid rgba(59,36,22,.35);
 border-radius:18px;
-background:rgba(255,255,255,.05);
+background:rgba(255,255,255,.45);
+font-weight:700;
 }
 
-/* WEBSITE VIDEOS BIGGER */
+/* WEBSITE VIDEOS BIGGER PC */
 .da-sitegrid{
 display:grid;
 grid-template-columns:repeat(4,1fr);
-gap:26px;
-margin-top:40px;
+gap:30px;
+margin-top:50px;
 }
+
 .da-site{
-border-radius:18px;
+border-radius:20px;
 overflow:hidden;
 display:block;
+box-shadow:0 20px 40px rgba(0,0,0,.25);
+transition:.35s;
 }
-.da-site video{width:100%;display:block;}
 
-/* SMG TEXT */
+.da-site:hover{transform:translateY(-8px);}
+.da-site video{
+width:100%;
+display:block;
+}
+
+/* description */
 .da-site-desc{
-margin-top:35px;
+margin-top:40px;
 font-size:18px;
-max-width:820px;
+max-width:860px;
 margin-left:auto;margin-right:auto;
-color:#eee;
+color:#3b2416;
+font-weight:700;
 }
 
 /* MOBILE */
@@ -132,11 +161,7 @@ color:#eee;
 }
 
 /* POSTER CAROUSEL */
-.da-carousel{
-overflow:hidden;
-position:relative;
-margin-top:40px;
-}
+.da-carousel{overflow:hidden;position:relative;margin-top:40px;}
 .da-track{
 display:flex;
 gap:24px;
@@ -147,7 +172,6 @@ height:300px;
 border-radius:16px;
 cursor:pointer;
 }
-
 @keyframes scroll{
 0%{transform:translateX(0)}
 100%{transform:translateX(-50%)}
@@ -212,7 +236,7 @@ and improve their online visibility.
 
 <!-- SKILLS -->
 <section class="da-skills">
-<h2 style="font-size:34px;">My Expertise</h2>
+<h2 style="font-size:34px;font-weight:800;">My Expertise</h2>
 <div class="da-grid">
 <div class="da-card"><h3>WordPress Development</h3></div>
 <div class="da-card"><h3>Shopify Management</h3></div>
@@ -224,15 +248,13 @@ and improve their online visibility.
 
 <!-- WEBSITE -->
 <section class="da-sites">
-<h2 style="font-size:34px;">Website Projects</h2>
+<h2 style="font-size:34px;font-weight:800;">Website Projects</h2>
 
 <div class="da-sitegrid">
-
 <a href="https://smgksa.net/" target="_blank" class="da-site"><video autoplay muted loop playsinline><source src="https://cdn.shopify.com/videos/c/o/v/822af1d6dd9e4795950e263b93c90cb2.mp4"></video></a>
 <a href="https://smgksa.net/" target="_blank" class="da-site"><video autoplay muted loop playsinline><source src="https://cdn.shopify.com/videos/c/o/v/4bd738842e44425384046a1b2a1d19c1.mp4"></video></a>
 <a href="https://smgksa.net/" target="_blank" class="da-site"><video autoplay muted loop playsinline><source src="https://cdn.shopify.com/videos/c/o/v/af5106c60e264d16be9e381eab172b78.mp4"></video></a>
 <a href="https://smgksa.net/" target="_blank" class="da-site"><video autoplay muted loop playsinline><source src="https://cdn.shopify.com/videos/c/o/v/ac33eb5d108e440b8ee9bb295e0c02e6.mp4"></video></a>
-
 </div>
 
 <div class="da-site-desc">
@@ -242,41 +264,12 @@ I developed the website for <b>SMG Logistics & Transport Company</b>, one of the
 </section>
 
 
-<!-- POSTERS -->
-<section class="da-posters">
-<h2 style="font-size:34px;">Design Works</h2>
-
-<div class="da-carousel">
-<div class="da-track" id="track">
-
-<img src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength__Global_Reach_-1_2__jpg.jpg?v=1772035275">
-<img src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength._Global_Reach.-1_14_.jpg_1.jpg?v=1772035274">
-<img src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength__Global_Reach_-1_1__jpg.jpg?v=1772035274">
-<img src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength__Global_Reach_-1_3__jpg.jpg?v=1772035274">
-<img src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength__Global_Reach_-1_16__jpg.jpg?v=1772035274">
-<img src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/SMG_SAUDI_FOUND_DAY_jpg.jpg?v=1772035274">
-
-<!-- duplicated for seamless infinite -->
-<img src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength__Global_Reach_-1_2__jpg.jpg?v=1772035275">
-<img src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength._Global_Reach.-1_14_.jpg_1.jpg?v=1772035274">
-<img src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength__Global_Reach_-1_1__jpg.jpg?v=1772035274">
-
-</div>
-</div>
-
-</section>
-
-
 <!-- POPUP -->
 <div class="da-popup" id="popup"><img id="popupimg"></div>
 
-
 <script>
-
-/* popup zoom */
 const popup=document.getElementById("popup");
 const popupimg=document.getElementById("popupimg");
-
 document.querySelectorAll(".da-track img").forEach(img=>{
 img.onclick=()=>{
 popup.classList.add("show");
@@ -284,7 +277,6 @@ popupimg.src=img.src;
 };
 });
 popup.onclick=()=>popup.classList.remove("show");
-
 </script>
 
 </section>
