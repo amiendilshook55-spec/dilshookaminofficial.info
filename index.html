@@ -259,7 +259,27 @@ grid-template-columns:1fr;
 .da-title{font-size:18px;}
 .da-photo{width:160px;}
 }
+/* ================= MOBILE BUTTON FIX ================= */
+@media (max-width:768px){
 
+.da-contact{
+    flex-direction:column;
+    align-items:center;
+    gap:15px;
+}
+
+.da-btn{
+    width:85%;              /* All same width */
+    max-width:320px;        /* Clean limit */
+    text-align:center;
+    padding:16px 0;         /* Same height */
+    border-radius:14px;     /* Same shape */
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+}
 </style>
 
 <!-- ================= VIDEO ================= -->
