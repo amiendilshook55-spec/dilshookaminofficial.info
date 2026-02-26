@@ -39,14 +39,6 @@ height:100%;
 object-fit:cover;
 }
 
-/* WHITE OVERLAY */
-.da-video-bg:after{
-content:"";
-position:absolute;
-inset:0;
-background:rgba(255,255,255,0.55);
-}
-
 /* Mobile swap */
 .da-desktop-video{display:block;}
 .da-mobile-video{display:none;}
@@ -127,25 +119,26 @@ overflow:hidden;
 transition:.4s;
 }
 
-.da-btn::before{
-content:"";
-position:absolute;
-left:0;
-top:0;
-width:0;
-height:100%;
-background:#fff;
-z-index:-1;
-transition:.45s;
+.da-btn{
+  position:relative;
+  overflow:hidden;
+  z-index:1;
 }
 
-.da-btn:hover{
-color:#3b2416;
-transform:translateY(-5px);
-box-shadow:0 20px 40px rgba(0,0,0,.15);
+.da-btn::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:-100%;
+  width:100%;
+  height:100%;
+  background:#fff;
+  transition:.4s;
+  z-index:-1;
 }
+
 .da-btn:hover::before{
-width:100%;
+  top:0;
 }
 
 /* ================= SKILLS ================= */
@@ -383,6 +376,27 @@ button:active,
 
   /* Smooth rendering */
   pointer-events:none;
+}
+  /* ===== SOFT DARK SHADE + LIGHT BLUR ===== */
+.da-video-bg::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(25,15,10,0.35);
+  backdrop-filter:blur(4px);
+  -webkit-backdrop-filter:blur(4px);
+  pointer-events:none;
+  /* ===== EXPERTISE HOVER EFFECT ===== */
+.da-card{
+  transition:all .4s ease;
+}
+
+.da-card:hover{
+  transform:translateY(-12px);
+  box-shadow:0 25px 60px rgba(0,0,0,0.25);
+  border-color:#3b2416;
+  background:rgba(255,255,255,0.9);
+}
 }
 </style>
 
