@@ -572,6 +572,33 @@ width:100%;
   }
 
 }
+  /* ================= EXPERTISE CARD TEXT FIX ================= */
+
+/* Make text left aligned instead of centered */
+.da-card{
+  text-align:left !important;
+  padding:45px 35px;        /* better spacing */
+  line-height:1.6;
+  font-size:18px;
+  display:flex;
+  align-items:center;       /* vertically centered */
+}
+
+/* Improve hover spacing consistency */
+.da-card:hover{
+  padding:45px 35px;
+}
+
+/* Mobile adjustment */
+@media (max-width:768px){
+
+  .da-card{
+    padding:30px 25px;
+    font-size:16px;
+    line-height:1.6;
+  }
+
+}
 </style>
 
 <!-- FIXED BACKGROUND IMAGE -->
