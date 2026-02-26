@@ -406,46 +406,55 @@ border-color:#3b2416;
 .da-card:hover::before{
 width:100%;
 }
-/* ===== PREMIUM WHITE TEXT OUTLINE (SELECTED TEXTS ONLY) ===== */
+/* ===== ULTRA PREMIUM BROWN TYPOGRAPHY ===== */
 
-/* Hero Name */
-.da-name{
-  color:#3b2416; /* your original premium brown */
-  
-  -webkit-text-stroke: 1px #ffffff; /* thin clean white outline */
-  
-  text-shadow:
-    0 2px 8px rgba(0,0,0,.35),  /* soft depth */
-    0 0 6px rgba(255,255,255,.4); /* subtle white glow */
+/* Improve rendering quality */
+#da-premium{
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
-/* ===== SAME STYLE AS DILSHOOK AMIN ===== */
 
-.da-title,
+/* HERO NAME */
+.da-name{
+  color:#3b2416;
+  letter-spacing:.5px;
+  text-shadow: 
+    0 2px 4px rgba(0,0,0,.25);
+}
+
+/* TITLE */
+.da-title{
+  color:#3b2416;
+  letter-spacing:.4px;
+  text-shadow:
+    0 1px 3px rgba(0,0,0,.25);
+}
+
+/* SECTION HEADINGS */
 .da-skills h2,
 .da-sites h2,
 .da-posters h2{
-  color:#3b2416; /* premium brown */
-
-  -webkit-text-stroke: 1px #ffffff; /* thin white outline */
-
+  color:#3b2416;
+  letter-spacing:.6px;
   text-shadow:
-    0 2px 8px rgba(0,0,0,.35),
-    0 0 6px rgba(255,255,255,.4);
+    0 2px 5px rgba(0,0,0,.25);
 }
-/* Website Description Text */
+
+/* DESCRIPTION TEXT */
+.da-desc,
+.da-badge,
 .da-site-desc{
-  color:#fff;
+  color:#3b2416;
   text-shadow:
-    0 0 6px rgba(255,255,255,.3),
-    0 3px 15px rgba(0,0,0,.6);
+    0 1px 2px rgba(0,0,0,.2);
 }
 
-/* Footer */
+/* FOOTER */
 #da-premium footer{
-  color:#fff !important;
+  color:#3b2416 !important;
   text-shadow:
-    0 0 6px rgba(255,255,255,.3),
-    0 2px 10px rgba(0,0,0,.6);
+    0 1px 2px rgba(0,0,0,.2);
 }
   /* ===== PREMIUM MOBILE TEXT ALIGNMENT ===== */
 
