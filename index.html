@@ -494,6 +494,84 @@ width:100%;
   }
 
 }
+  /* ================= TEXT ALIGNMENT MASTER FIX ================= */
+
+/* Make all main text blocks consistent */
+.da-desc,
+.da-badge,
+.da-site-desc{
+  max-width:950px;
+  margin-left:auto;
+  margin-right:auto;
+  text-align:center;
+}
+
+/* HERO DESCRIPTION FIX */
+.da-desc{
+  margin-top:25px;
+  font-size:18px;
+  line-height:1.9;
+  letter-spacing:.2px;
+}
+
+.da-desc .line{
+  display:block;
+  margin-bottom:8px;
+}
+
+/* Remove extra bottom space on last sentence */
+.da-desc .line:last-child{
+  margin-bottom:0;
+}
+
+/* BADGE */
+.da-badge{
+  margin-top:20px;
+  font-size:15px;
+  line-height:1.7;
+}
+
+/* WEBSITE DESCRIPTION */
+.da-site-desc{
+  margin-top:50px;
+  font-size:18px;
+  line-height:1.9;
+  letter-spacing:.2px;
+}
+
+/* SECTION HEADINGS ALIGN PERFECT CENTER */
+.da-skills h2,
+.da-sites h2,
+.da-posters h2{
+  margin-bottom:45px;
+  line-height:1.3;
+}
+
+/* MOBILE PERFECT ALIGNMENT */
+@media (max-width:768px){
+
+  .da-desc{
+    font-size:15px;
+    line-height:1.8;
+    padding:0 18px;
+  }
+
+  .da-desc .line{
+    margin-bottom:10px;
+  }
+
+  .da-badge{
+    font-size:14px;
+    padding:0 15px;
+  }
+
+  .da-site-desc{
+    font-size:15px;
+    line-height:1.8;
+    padding:0 18px;
+  }
+
+}
 </style>
 
 <!-- FIXED BACKGROUND IMAGE -->
@@ -509,8 +587,8 @@ width:100%;
 <div class="da-title">Website Developer • Designer • SEO Specialist</div>
 
 <div class="da-desc">
-I am a professional website developer, designer and SEO specialist based in Saudi Arabia.
-I help companies build high-quality WordPress and Shopify websites, create marketing designs and improve their online visibility.
+  <span class="line">I am a professional website developer, designer and SEO specialist based in Saudi Arabia.</span>
+  <span class="line">I help companies build high-quality WordPress and Shopify websites, create marketing designs and improve their online visibility.</span>
 </div>
 
 <div class="da-badge">
