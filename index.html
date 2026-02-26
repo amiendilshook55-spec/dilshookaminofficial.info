@@ -647,6 +647,90 @@ width:100%;
   }
 
 }
+  /* ================= HERO TEXT HIGHLIGHT PANEL ================= */
+
+.da-wrap{
+  position:relative;
+  z-index:2;
+  max-width:900px;
+  margin:auto;
+  padding:60px 40px;
+  border-radius:24px;
+
+  background:rgba(0,0,0,.45);        /* Dark transparent panel */
+  backdrop-filter:blur(8px);         /* Glass effect */
+  -webkit-backdrop-filter:blur(8px);
+
+  box-shadow:0 30px 80px rgba(0,0,0,.35);
+}
+
+/* Make text white for strong contrast */
+.da-name,
+.da-title,
+.da-desc,
+.da-badge{
+  color:#ffffff !important;
+  text-shadow:none !important;
+}
+
+/* Mobile adjustment */
+@media (max-width:768px){
+  .da-wrap{
+    padding:40px 20px;
+    border-radius:18px;
+  }
+}
+  /* ================= WEBSITE DESCRIPTION HIGHLIGHT ================= */
+
+.da-site-desc{
+  position:relative;
+  z-index:2;
+  padding:40px 50px;
+  border-radius:22px;
+
+  background:rgba(0,0,0,.45);     /* dark overlay panel */
+  backdrop-filter:blur(6px);
+  -webkit-backdrop-filter:blur(6px);
+
+  box-shadow:0 25px 60px rgba(0,0,0,.35);
+
+  color:#ffffff !important;       /* make text readable */
+  text-shadow:none !important;
+
+  max-width:900px;
+  margin:60px auto 0;
+  line-height:1.9;
+}
+
+/* Mobile fix */
+@media (max-width:768px){
+
+  .da-site-desc{
+    padding:28px 20px;
+    border-radius:18px;
+    font-size:15px;
+  }
+
+}
+  /* ================= FOOTER HIGHLIGHT ================= */
+
+#da-premium footer{
+  margin-top:100px;
+  padding:35px 20px;
+  text-align:center;
+  font-weight:600;
+  font-size:15px;
+  letter-spacing:.3px;
+
+  background:rgba(0,0,0,.45);        /* dark panel */
+  backdrop-filter:blur(6px);
+  -webkit-backdrop-filter:blur(6px);
+
+  border-top:1px solid rgba(255,255,255,.15);
+
+  color:#ffffff !important;
+  text-shadow:none !important;
+}
 </style>
 
 <!-- FIXED BACKGROUND IMAGE -->
@@ -750,10 +834,9 @@ I developed the official website for SMG Logistics & Transport Company, one of t
 </div>
 
 <!-- FOOTER -->
-<footer style="text-align:center;padding:40px 20px;font-weight:600;background:rgba(255,255,255,.7);margin-top:80px;">
+<footer>
 © <span id="year"></span> Dilshook Amin. All Rights Reserved.
 </footer>
-
 <script>
 document.getElementById("year").innerText=new Date().getFullYear();
 
