@@ -415,23 +415,26 @@ const text=document.getElementById("skillText");
 
 if(type==="dev"){
 title.innerText="Website Development";
-text.innerText="I develop complete professional websites based on client requirements for any category including corporate, logistics, eCommerce, portfolio and custom business systems.";
-}
-if(type==="wp"){
-title.innerText="WordPress & Shopify";
-text.innerText="Expert in WordPress and Shopify including theme customization, speed optimization, security, plugin integration, payment gateway setup and complete eCommerce development.";
-}
-if(type==="design"){
-title.innerText="Graphic Design";
-text.innerText="Social media posts, company covers, ad creatives, website banners, promotional videos, website images and complete branding materials.";
-}
-if(type==="marketing"){
-title.innerText="Digital Marketing & SEO";
-text.innerText="Organic marketing strategies including Meta Ads (Facebook & Instagram Ads), Google Ads, LinkedIn Ads Campaign Manager, Twitter (X) Ads Manager, keyword research, blog SEO, technical SEO and ranking improvement.";
-}
-popup.classList.add("show");
+text.innerText="I develop complete, professional websites tailored to client requirements across all industries, including corporate, logistics, eCommerce, portfolio, and fully customized business systems. Each website is built for performance, scalability, and a strong digital presence.";
 }
 
+if(type==="wp"){
+title.innerText="WordPress & Shopify Development";
+text.innerText="Specialized in WordPress and Shopify development, including custom theme design, speed optimization, security enhancement, plugin integration, payment gateway setup, and complete eCommerce store development tailored to business needs.";
+}
+
+if(type==="design"){
+title.innerText="Graphic Design";
+text.innerText="Creative design solutions including social media posts, company profile covers, advertising creatives, website banners, promotional videos, website graphics, and complete branding materials designed to enhance brand identity.";
+}
+
+if(type==="marketing"){
+title.innerText="Digital Marketing & SEO";
+text.innerText="Strategic digital marketing services including Meta Ads (Facebook & Instagram), Google Ads, LinkedIn Ads Campaign Manager, and X (Twitter) Ads. Services also include keyword research, on-page SEO, technical SEO, blog optimization, and search engine ranking improvement.";
+}
+
+popup.classList.add("show");
+}
 function closeSkill(){
 document.getElementById("skillPopup").classList.remove("show");
 }
