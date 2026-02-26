@@ -406,68 +406,105 @@ border-color:#3b2416;
 .da-card:hover::before{
 width:100%;
 }
-  /* ================= PREMIUM WHITE OUTLINE TEXT ONLY ================= */
+/* ===== PREMIUM WHITE TEXT OUTLINE (SELECTED TEXTS ONLY) ===== */
 
-/* Import Luxury Font */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&display=swap');
-
-/* Apply premium font */
-.da-name,
-.da-title,
-.da-skills h2,
-.da-sites h2,
-.da-posters h2,
-.da-site-desc,
-.da-badge,
-#da-premium footer {
-  font-family: 'Playfair Display', serif;
-}
-
-/* Main Name Strong Outline */
+/* Hero Name */
 .da-name{
-  color: transparent;
-  -webkit-text-stroke: 2px #ffffff;
-  letter-spacing: 2px;
+  color:#fff;
+  -webkit-text-stroke: 1.5px #ffffff;
+  text-shadow:
+    0 0 10px rgba(255,255,255,.4),
+    0 0 20px rgba(255,255,255,.3),
+    0 4px 25px rgba(0,0,0,.6);
 }
 
-/* Subtitle Outline */
+/* Hero Title */
 .da-title{
-  color: transparent;
+  color:#fff;
   -webkit-text-stroke: 1px #ffffff;
-  letter-spacing: 2px;
+  text-shadow:
+    0 0 8px rgba(255,255,255,.3),
+    0 3px 15px rgba(0,0,0,.6);
+}
+
+/* Description + Badge */
+.da-desc,
+.da-badge{
+  color:#fff;
+  text-shadow:
+    0 0 6px rgba(255,255,255,.3),
+    0 2px 12px rgba(0,0,0,.6);
 }
 
 /* Section Headings */
 .da-skills h2,
 .da-sites h2,
 .da-posters h2{
-  color: transparent;
-  -webkit-text-stroke: 1.5px #ffffff;
-  letter-spacing: 2px;
+  color:#fff;
+  -webkit-text-stroke: 1px #ffffff;
+  text-shadow:
+    0 0 10px rgba(255,255,255,.3),
+    0 4px 20px rgba(0,0,0,.6);
 }
 
-/* Description Paragraph */
-.da-desc{
-  color: rgba(255,255,255,0.9);
-  font-weight: 500;
-}
-
-/* Website Description Paragraph */
+/* Website Description Text */
 .da-site-desc{
-  color: rgba(255,255,255,0.9);
-  font-weight: 500;
-}
-
-/* Location Badge */
-.da-badge{
-  color: #ffffff;
-  letter-spacing: 1.5px;
+  color:#fff;
+  text-shadow:
+    0 0 6px rgba(255,255,255,.3),
+    0 3px 15px rgba(0,0,0,.6);
 }
 
 /* Footer */
 #da-premium footer{
-  color: #ffffff !important;
-  background: transparent !important;
+  color:#fff !important;
+  text-shadow:
+    0 0 6px rgba(255,255,255,.3),
+    0 2px 10px rgba(0,0,0,.6);
+}
+  /* ===== PREMIUM MOBILE TEXT ALIGNMENT ===== */
+
+@media (max-width:768px){
+
+  .da-name{
+    font-size:32px;
+    line-height:1.2;
+    text-align:center;
+  }
+
+  .da-title{
+    font-size:16px;
+    line-height:1.5;
+    text-align:center;
+  }
+
+  .da-desc{
+    font-size:15px;
+    line-height:1.7;
+    padding:0 10px;
+    text-align:center;
+  }
+
+  .da-badge{
+    font-size:14px;
+    line-height:1.6;
+    text-align:center;
+  }
+
+  .da-site-desc{
+    font-size:15px;
+    line-height:1.7;
+    padding:0 10px;
+    text-align:center;
+  }
+
+  .da-skills h2,
+  .da-sites h2,
+  .da-posters h2{
+    font-size:26px;
+    text-align:center;
+  }
+
 }
 </style>
 
