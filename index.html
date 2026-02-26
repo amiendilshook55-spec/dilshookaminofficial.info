@@ -188,12 +188,13 @@ z-index:10000;
 .da-skill-popup.show{display:flex;}
 .da-skill-content{
 background:#fff;
-padding:50px 35px;
-max-width:600px;
+padding:55px 45px;
+max-width:680px;
 border-radius:18px;
-text-align:center;
+text-align:left;   /* FIXED */
 position:relative;
 color:#3b2416;
+line-height:1.9;
 }
 .da-close{
 position:absolute;
@@ -317,15 +318,29 @@ display:flex;
 
 /* ===== MOBILE TEXT FIX ===== */
 @media(max-width:768px){
- .da-skill-content{
-  padding:35px 20px;
-  text-align:center;
- }
- .da-skill-content p{
-  font-size:15px;
-  line-height:1.7;
-  text-align:center;
- }
+
+  .da-skill-content{
+    padding:35px 22px;
+    text-align:left;   /* FIXED */
+  }
+
+  .da-skill-content p{
+    font-size:15px;
+    line-height:1.8;
+    text-align:left;   /* FIXED */
+  }
+
+}
+  #skillTitle{
+  font-size:22px;
+  margin-bottom:20px;
+  text-align:left;
+}
+
+#skillText{
+  font-size:17px;
+  line-height:1.9;
+  text-align:left;
 }
   /* ===== SCROLL REVEAL ===== */
 .reveal{
