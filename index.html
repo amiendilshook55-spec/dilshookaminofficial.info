@@ -291,6 +291,52 @@ display:flex;
 .da-contact{flex-direction:column;align-items:center;gap:15px;}
 .da-btn{width:85%;max-width:320px;text-align:center;padding:16px 0;border-radius:14px;display:flex;align-items:center;justify-content:center;}
 }
+  /* ===== EXPERTISE POPUP ANIMATION ===== */
+.da-skill-popup{
+ opacity:0;
+ visibility:hidden;
+ transition:opacity .4s ease;
+}
+
+.da-skill-popup.show{
+ opacity:1;
+ visibility:visible;
+}
+
+.da-skill-content{
+ transform:translateY(40px) scale(.95);
+ opacity:0;
+ transition:all .4s ease;
+}
+
+.da-skill-popup.show .da-skill-content{
+ transform:translateY(0) scale(1);
+ opacity:1;
+}
+
+/* ===== MOBILE TEXT FIX ===== */
+@media(max-width:768px){
+ .da-skill-content{
+  padding:35px 20px;
+  text-align:center;
+ }
+ .da-skill-content p{
+  font-size:15px;
+  line-height:1.7;
+  text-align:center;
+ }
+}
+  /* ===== SCROLL REVEAL ===== */
+.reveal{
+ opacity:0;
+ transform:translateY(60px);
+ transition:all .8s ease;
+}
+
+.reveal.active{
+ opacity:1;
+ transform:translateY(0);
+}
 </style>
 
 <!-- VIDEO -->
@@ -409,31 +455,31 @@ I developed the official website for SMG Logistics & Transport Company, one of t
 document.getElementById("year").innerText=new Date().getFullYear();
 
 function openSkill(type){
-const popup=document.getElementById("skillPopup");
-const title=document.getElementById("skillTitle");
-const text=document.getElementById("skillText");
+ const popup=document.getElementById("skillPopup");
+ const title=document.getElementById("skillTitle");
+ const text=document.getElementById("skillText");
 
-if(type==="dev"){
-title.innerText="Website Development";
-text.innerText="I develop complete, professional websites tailored to client requirements across all industries, including corporate, logistics, eCommerce, portfolio, and fully customized business systems. Each website is built for performance, scalability, and a strong digital presence.";
-}
+ if(type==="dev"){
+  title.innerText="Complete Website Development";
+  text.innerText="I can develop any category of website based on client requirements — corporate, logistics, eCommerce, portfolio, real estate, medical, educational, business systems, or fully custom platforms. Every website is delivered as a complete professional package including premium visuals, high-quality videos, custom graphics designed by myself, strong structure, speed optimization, and modern UI/UX for maximum performance and brand impact.";
+ }
 
-if(type==="wp"){
-title.innerText="WordPress & Shopify Development";
-text.innerText="Specialized in WordPress and Shopify development, including custom theme design, speed optimization, security enhancement, plugin integration, payment gateway setup, and complete eCommerce store development tailored to business needs.";
-}
+ if(type==="wp"){
+  title.innerText="WordPress & Shopify Solutions";
+  text.innerText="Full WordPress and Shopify development including custom themes, store setup, product optimization, secure payment gateway integration, performance tuning, SEO structure, speed optimization and complete launch support. I build scalable, high-performance websites tailored exactly to your business goals.";
+ }
 
-if(type==="design"){
-title.innerText="Graphic Design";
-text.innerText="Creative design solutions including social media posts, company profile covers, advertising creatives, website banners, promotional videos, website graphics, and complete branding materials designed to enhance brand identity.";
-}
+ if(type==="design"){
+  title.innerText="Professional Graphic Design";
+  text.innerText="Complete graphic design solutions including social media posts, covers, banners, website graphics, YouTube covers, profile branding, advertising creatives, company profile designs, promotional materials and all categories of digital media design — built professionally to strengthen your brand identity.";
+ }
 
-if(type==="marketing"){
-title.innerText="Digital Marketing & SEO";
-text.innerText="Strategic digital marketing services including Meta Ads (Facebook & Instagram), Google Ads, LinkedIn Ads Campaign Manager, and X (Twitter) Ads. Services also include keyword research, on-page SEO, technical SEO, blog optimization, and search engine ranking improvement.";
-}
+ if(type==="marketing"){
+  title.innerText="Digital Marketing & SEO";
+  text.innerText="Advanced digital marketing services including Meta Ads (Facebook & Instagram), Google Ads, LinkedIn Ads, and X (Twitter) Ads campaigns. I also provide complete SEO solutions including keyword research, on-page SEO, technical SEO, content optimization, and strong organic reach growth strategies to improve ranking and online visibility.";
+ }
 
-popup.classList.add("show");
+ popup.classList.add("show");
 }
 function closeSkill(){
 document.getElementById("skillPopup").classList.remove("show");
@@ -449,6 +495,27 @@ popupimg.src=img.src;
 };
 });
 popup.onclick=()=>popup.classList.remove("show");
+  document.getElementById("skillPopup").addEventListener("click",function(e){
+ if(e.target === this){
+   this.classList.remove("show");
+ }
+});
+  const reveals=document.querySelectorAll(".da-wrap, .da-skills, .da-sites, .da-posters");
+
+reveals.forEach(el=>el.classList.add("reveal"));
+
+function revealOnScroll(){
+ const windowHeight=window.innerHeight;
+ reveals.forEach(el=>{
+   const elementTop=el.getBoundingClientRect().top;
+   if(elementTop < windowHeight - 100){
+     el.classList.add("active");
+   }
+ });
+}
+
+window.addEventListener("scroll",revealOnScroll);
+revealOnScroll();
 </script>
 
 </section>
