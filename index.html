@@ -406,55 +406,69 @@ border-color:#3b2416;
 .da-card:hover::before{
 width:100%;
 }
-/* ===== PREMIUM WHITE OUTLINE TEXT ===== */
+  /* ================= PREMIUM WHITE OUTLINE TEXT ONLY ================= */
 
-.da-hero-text{
-  text-align:center;
-  color:transparent;
+/* Import Luxury Font */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&display=swap');
+
+/* Apply premium font */
+.da-name,
+.da-title,
+.da-skills h2,
+.da-sites h2,
+.da-posters h2,
+.da-site-desc,
+.da-badge,
+#da-premium footer {
+  font-family: 'Playfair Display', serif;
 }
 
-/* NAME - Strong Outline */
-.da-outline-name{
-  font-size:64px;
-  font-weight:800;
-  letter-spacing:2px;
-  color:transparent;
+/* Main Name Strong Outline */
+.da-name{
+  color: transparent;
   -webkit-text-stroke: 2px #ffffff;
-  text-transform:uppercase;
-  margin-bottom:15px;
+  letter-spacing: 2px;
 }
 
-/* SUBTITLE */
-.da-outline-sub{
-  font-size:22px;
-  font-weight:500;
-  letter-spacing:3px;
-  color:transparent;
+/* Subtitle Outline */
+.da-title{
+  color: transparent;
   -webkit-text-stroke: 1px #ffffff;
-  margin-bottom:25px;
+  letter-spacing: 2px;
 }
 
-/* DESCRIPTION */
-.da-outline-desc{
-  font-size:18px;
-  font-weight:400;
-  max-width:750px;
-  margin:0 auto 20px;
-  line-height:1.7;
-  color:rgba(255,255,255,0.85);
+/* Section Headings */
+.da-skills h2,
+.da-sites h2,
+.da-posters h2{
+  color: transparent;
+  -webkit-text-stroke: 1.5px #ffffff;
+  letter-spacing: 2px;
 }
 
-/* LOCATION */
-.da-outline-location{
-  font-size:15px;
-  letter-spacing:2px;
-  text-transform:uppercase;
-  color:#ffffff;
-  font-weight:600;
+/* Description Paragraph */
+.da-desc{
+  color: rgba(255,255,255,0.9);
+  font-weight: 500;
 }
-  text-shadow:
-  0 0 10px rgba(255,255,255,0.4),
-  0 0 20px rgba(255,255,255,0.3);
+
+/* Website Description Paragraph */
+.da-site-desc{
+  color: rgba(255,255,255,0.9);
+  font-weight: 500;
+}
+
+/* Location Badge */
+.da-badge{
+  color: #ffffff;
+  letter-spacing: 1.5px;
+}
+
+/* Footer */
+#da-premium footer{
+  color: #ffffff !important;
+  background: transparent !important;
+}
 </style>
 
 <!-- VIDEO -->
