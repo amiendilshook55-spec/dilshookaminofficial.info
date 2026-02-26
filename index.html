@@ -679,6 +679,20 @@ function revealOnScroll(){
 
 window.addEventListener("scroll",revealOnScroll);
 revealOnScroll();
+
+const video = document.getElementById("bgVideo");
+
+function setVideoSource() {
+  if (window.innerWidth <= 768) {
+    video.src = "https://cdn.shopify.com/videos/c/o/v/c364995e30fc4ee7857befce2eb71365.mp4"; // MOBILE
+  } else {
+    video.src = "https://cdn.shopify.com/videos/c/o/v/9355724489fc423ba259b02f1d8fa1cb.mp4"; // DESKTOP
+  }
+  video.load();
+}
+
+setVideoSource();
+window.addEventListener("resize", setVideoSource);
 </script>
 
 </section>
