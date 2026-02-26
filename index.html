@@ -71,14 +71,15 @@ padding:100px 25px;
 
 /* ================= PROFILE FRAME PREMIUM BROWN ================= */
 
+/* Clean Minimal Photo */
 .da-photo{
   width:240px;
   height:240px;
   margin:auto;
-  padding:10px;
-  background:#3b2416;               /* Main brown frame */
-  border-radius:20px;               /* Square with soft corners */
-  box-shadow:0 25px 60px rgba(0,0,0,.35);
+  padding:0;                /* remove frame spacing */
+  background:transparent;   /* remove brown background */
+  border-radius:20px;
+  box-shadow:none;          /* remove outer shadow */
   display:flex;
   align-items:center;
   justify-content:center;
@@ -90,22 +91,22 @@ padding:100px 25px;
   width:100%;
   height:100%;
   object-fit:cover;
-  border-radius:14px;               /* Slight inner rounding */
-  box-shadow:0 15px 35px rgba(0,0,0,.25);
+  border-radius:20px;       /* same as outer for clean look */
+  box-shadow:none;          /* remove inner shadow */
 }
-  @media (max-width:768px){
+
+@media (max-width:768px){
   .da-photo{
     width:180px;
     height:180px;
-    padding:8px;
+    padding:0;
     border-radius:18px;
   }
 
   .da-photo img{
-    border-radius:12px;
+    border-radius:18px;
   }
 }
-
 /* Optional subtle hover effect */
 .da-photo:hover{
   transform:translateY(-8px);
