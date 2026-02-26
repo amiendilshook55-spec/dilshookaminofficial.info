@@ -367,6 +367,23 @@ button:active,
   outline: none !important;
   box-shadow: none !important;
 }
+  /* ===== REMOVE WHITE OVERLAY & ADD BLUR SHADE ===== */
+
+.da-video-bg::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  
+  /* Dark transparent shade */
+  background: rgba(20, 12, 8, 0.45);
+
+  /* Blur effect */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  /* Smooth rendering */
+  pointer-events:none;
+}
 </style>
 
 <!-- VIDEO -->
