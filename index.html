@@ -12,357 +12,530 @@
 
 <style>
 
-/* ================= GLOBAL ================= */
+/* ================= MAIN ================= */
 #da-premium{
-  background:url("https://cdn.shopify.com/s/files/1/0979/8782/1879/files/dilshook_website_pc_background.png?v=1772074894") no-repeat center center fixed;
-  background-size:cover;
-  color:#F8FAFC;
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
-  font-weight:500;
-  overflow:hidden;
-  position:relative;
+background:transparent;
+color:#3b2416;
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+font-weight:600;
+overflow:hidden;
+position:relative;
+z-index:1;
 }
 
-#da-premium::before{
-  content:"";
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,0.55);
-  z-index:-1;
+/* ================= FIXED VIDEO ================= */
+.da-video-bg{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+z-index:-1;
+overflow:hidden;
+}
+.da-video-bg video{
+width:100%;
+height:100%;
+object-fit:cover;
 }
 
+
+
+/* Mobile swap */
+.da-desktop-video{display:block;}
+.da-mobile-video{display:none;}
 @media(max-width:768px){
-  #da-premium{
-    background:url("https://cdn.shopify.com/s/files/1/0979/8782/1879/files/dilshook_website_mobile_background.png?v=1772074842") no-repeat center center fixed;
-    background-size:cover;
-  }
+.da-desktop-video{display:none;}
+.da-mobile-video{display:block;}
 }
 
-/* ================= WRAPPER ================= */
+/* ================= SECTION WRAPPER ================= */
 .da-wrap,
 .da-skills,
 .da-sites,
 .da-posters{
-  max-width:1200px;
-  margin:auto;
-  padding:100px 25px;
+max-width:1200px;
+margin:auto;
+padding:100px 25px;
 }
 
 /* ================= HERO ================= */
 .da-wrap{text-align:center;}
 
 .da-photo{
-  width:220px;
-  margin:auto;
+width:220px;
+margin:auto;
 }
 .da-photo img{
-  width:100%;
-  border-radius:50%;
-  box-shadow:0 30px 60px rgba(0,0,0,.6);
+width:100%;
+border-radius:50%;
+box-shadow:0 30px 60px rgba(0,0,0,.25);
 }
 
 .da-name{
-  font-size:54px;
-  font-weight:800;
-  margin-top:30px;
-  letter-spacing:.5px;
+font-size:50px;
+font-weight:800;
+margin-top:30px;
 }
 
 .da-title{
-  font-size:22px;
-  margin-top:12px;
-  font-weight:600;
-  color:#CBD5E1;
+font-size:24px;
+margin-top:12px;
+font-weight:700;
 }
 
 .da-desc{
-  max-width:680px;
-  margin:25px auto 0;
-  font-size:18px;
-  line-height:1.8;
-  color:#CBD5E1;
+max-width:760px;
+margin:25px auto 0;
+font-size:18px;
+line-height:1.8;
+font-weight:600;
+text-align:center;
 }
 
 .da-badge{
-  margin-top:18px;
-  font-size:15px;
-  color:#94A3B8;
+margin-top:18px;
+display:block;
+font-size:15px;
+font-weight:700;
 }
 
 /* ================= BUTTONS ================= */
 .da-contact{
-  margin-top:35px;
-  display:flex;
-  gap:18px;
-  justify-content:center;
-  flex-wrap:wrap;
+margin-top:35px;
+display:flex;
+gap:18px;
+justify-content:center;
+flex-wrap:wrap;
 }
 
 .da-btn{
-  position:relative;
-  background:#2563EB;
-  color:#fff;
-  padding:16px 34px;
-  border-radius:12px;
-  text-decoration:none;
-  font-weight:700;
-  overflow:hidden;
-  transition:.4s;
+position:relative;
+background:#3b2416;
+color:#fff;
+padding:16px 34px;
+border-radius:12px;
+text-decoration:none;
+font-weight:700;
+overflow:hidden;
+transition:.4s;
 }
 
 .da-btn::before{
-  content:"";
-  position:absolute;
-  left:0;
-  top:0;
-  width:0;
-  height:100%;
-  background:#fff;
-  z-index:-1;
-  transition:.45s;
+content:"";
+position:absolute;
+left:0;
+top:0;
+width:0;
+height:100%;
+background:#fff;
+z-index:-1;
+transition:.45s;
 }
 
 .da-btn:hover{
-  color:#2563EB;
-  transform:translateY(-5px);
-  box-shadow:0 20px 40px rgba(0,0,0,.4);
+color:#3b2416;
+transform:translateY(-5px);
+box-shadow:0 20px 40px rgba(0,0,0,.15);
 }
-
 .da-btn:hover::before{
-  width:100%;
-}
-
-/* ================= HEADINGS ================= */
-.da-skills h2,
-.da-sites h2,
-.da-posters h2{
-  font-size:38px;
-  font-weight:800;
-  text-align:center;
-  margin-bottom:50px;
+width:100%;
 }
 
 /* ================= SKILLS ================= */
+.da-skills h2,
+.da-sites h2,
+.da-posters h2{
+font-size:38px;
+font-weight:800;
+text-align:center;
+margin-bottom:50px;
+}
+
 .da-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  gap:30px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:30px;
 }
 
 .da-card{
-  position:relative;
-  padding:40px 25px;
-  border:1px solid rgba(255,255,255,.08);
-  border-radius:20px;
-  background:rgba(15,23,42,.65);
-  backdrop-filter:blur(10px);
-  text-align:center;
-  font-weight:700;
-  cursor:pointer;
-  overflow:hidden;
-  transition:.4s;
-  z-index:1;
+padding:40px 25px;
+border:2px solid rgba(59,36,22,.3);
+border-radius:20px;
+background:rgba(255,255,255,.6);
+text-align:center;
+font-weight:700;
+cursor:pointer;
 }
 
-.da-card::before{
-  content:"";
-  position:absolute;
-  left:0;
-  top:0;
-  width:0;
-  height:100%;
-  background:#2563EB;
-  z-index:-1;
-  transition:.45s;
+/* ===== SKILL POPUP ===== */
+.da-skill-popup{
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.85);
+display:none;
+align-items:center;
+justify-content:center;
+z-index:10000;
+}
+.da-skill-popup.show{display:flex;}
+.da-skill-content{
+background:#fff;
+padding:50px 35px;
+max-width:600px;
+border-radius:18px;
+text-align:center;
+position:relative;
+color:#3b2416;
+}
+.da-close{
+position:absolute;
+top:15px;
+right:20px;
+font-size:28px;
+cursor:pointer;
+font-weight:800;
 }
 
-.da-card:hover{
-  color:#fff;
-  transform:translateY(-8px);
-  box-shadow:0 20px 40px rgba(0,0,0,.5);
-}
-
-.da-card:hover::before{
-  width:100%;
-}
-
-/* ================= WEBSITE WORKS ================= */
+/* ================= WEBSITE VIDEOS ================= */
 .da-sitegrid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:40px;
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:40px;
 }
 
 .da-site{
-  border-radius:22px;
-  overflow:hidden;
-  box-shadow:0 25px 50px rgba(0,0,0,.5);
-  transition:.4s;
+border-radius:22px;
+overflow:hidden;
+box-shadow:0 25px 50px rgba(0,0,0,.25);
+transition:.4s;
 }
-
 .da-site:hover{
-  transform:translateY(-8px);
+transform:translateY(-8px);
 }
-
 .da-site video{
-  width:100%;
-  display:block;
+width:100%;
+display:block;
 }
 
 .da-site-desc{
-  margin-top:50px;
-  font-size:19px;
-  max-width:900px;
-  line-height:1.8;
-  margin-left:auto;
-  margin-right:auto;
-  text-align:center;
-  color:#CBD5E1;
+margin-top:50px;
+font-size:19px;
+font-weight:700;
+max-width:900px;
+line-height:1.8;
+margin-left:auto;
+margin-right:auto;
+text-align:center;
 }
 
-/* ================= POSTERS ================= */
+/* ================= POSTER CAROUSEL FIXED ================= */
 .da-carousel{
-  overflow:hidden;
-  position:relative;
-  width:100%;
+overflow:hidden;
+position:relative;
+width:100%;
 }
 
 .da-track{
-  display:flex;
-  gap:30px;
-  width:max-content;
-  animation:da-scroll 45s linear infinite;
+display:flex;
+gap:30px;
+width:max-content;
+animation:da-scroll 45s linear infinite;
 }
 
 .da-track img{
-  height:320px;
-  border-radius:18px;
-  cursor:pointer;
-  flex-shrink:0;
+height:320px;
+border-radius:18px;
+cursor:pointer;
+flex-shrink:0;
 }
 
 @keyframes da-scroll{
-  0%{transform:translateX(0);}
-  100%{transform:translateX(-50%);}
+0%{transform:translateX(0);}
+100%{transform:translateX(-50%);}
 }
 
-/* ================= POPUPS ================= */
-.da-popup,
-.da-skill-popup{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.9);
-  display:none;
-  align-items:center;
-  justify-content:center;
-  z-index:9999;
+/* ================= IMAGE POPUP ================= */
+.da-popup{
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.9);
+display:none;
+align-items:center;
+justify-content:center;
+z-index:9999;
 }
-
-.da-popup.show,
-.da-skill-popup.show{
-  display:flex;
-}
-
 .da-popup img{
-  max-width:90%;
-  max-height:90%;
-  border-radius:14px;
+max-width:90%;
+max-height:90%;
+border-radius:14px;
 }
-
-.da-skill-content{
-  background:#0f172a;
-  padding:50px 35px;
-  max-width:600px;
-  border-radius:18px;
-  text-align:center;
-  position:relative;
-  color:#F8FAFC;
-  border:1px solid rgba(255,255,255,.08);
-}
-
-.da-close{
-  position:absolute;
-  top:15px;
-  right:20px;
-  font-size:28px;
-  cursor:pointer;
+.da-popup.show{
+display:flex;
 }
 
 /* ================= RESPONSIVE ================= */
 @media(max-width:900px){
-  .da-sitegrid{grid-template-columns:1fr;}
-  .da-name{font-size:36px;}
-  .da-title{font-size:18px;}
-  .da-photo{width:160px;}
+.da-sitegrid{grid-template-columns:1fr;}
+.da-name{font-size:36px;}
+.da-title{font-size:18px;}
+.da-photo{width:160px;}
+}
+@media (max-width:768px){
+.da-contact{flex-direction:column;align-items:center;gap:15px;}
+.da-btn{width:85%;max-width:320px;text-align:center;padding:16px 0;border-radius:14px;display:flex;align-items:center;justify-content:center;}
+}
+  /* ===== EXPERTISE POPUP ANIMATION ===== */
+.da-skill-popup{
+ opacity:0;
+ visibility:hidden;
+ transition:opacity .4s ease;
 }
 
-@media(max-width:768px){
+.da-skill-popup.show{
+ opacity:1;
+ visibility:visible;
+}
 
-  .da-wrap{padding:80px 20px;}
+.da-skill-content{
+ transform:translateY(40px) scale(.95);
+ opacity:0;
+ transition:all .4s ease;
+}
+
+.da-skill-popup.show .da-skill-content{
+ transform:translateY(0) scale(1);
+ opacity:1;
+}
+
+/* ===== MOBILE TEXT FIX ===== */
+@media(max-width:768px){
+ .da-skill-content{
+  padding:35px 20px;
+  text-align:center;
+ }
+ .da-skill-content p{
+  font-size:15px;
+  line-height:1.7;
+  text-align:center;
+ }
+}
+  /* ===== SCROLL REVEAL ===== */
+.reveal{
+ opacity:0;
+ transform:translateY(60px);
+ transition:all .8s ease;
+}
+
+.reveal.active{
+ opacity:1;
+ transform:translateY(0);
+}
+  /* ===== REMOVE FOOTER WHITE BOX ===== */
+#da-premium footer{
+  background: transparent !important;
+  backdrop-filter: none !important;
+}
+
+/* Optional: make it look cleaner on video */
+#da-premium footer{
+  color:#3b2416;
+}
+  /* ===== REMOVE MOBILE TAP BLUE HIGHLIGHT ===== */
+* {
+  -webkit-tap-highlight-color: transparent !important;
+}
+
+/* Remove button focus outline on mobile */
+a, button, .da-card {
+  outline: none !important;
+}
+
+/* Remove grey highlight on some browsers */
+a:focus,
+a:active,
+button:focus,
+button:active,
+.da-card:focus,
+.da-card:active {
+  outline: none !important;
+  box-shadow: none !important;
+}
+/* ===== CLEAN WHITE VIDEO OVERLAY ===== */
+
+.da-video-bg::after{
+  content:"";
+  position:absolute;
+  inset:0;
+
+  background: rgba(255,255,255,0.30); /* white overlay */
+
+  backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(1px);
+
+  pointer-events:none;
+}
+  /* ===== EXPERTISE BOX SAME HOVER STYLE AS BUTTON ===== */
+
+.da-card{
+position:relative;
+overflow:hidden;
+transition:.4s;
+z-index:1;
+}
+
+.da-card::before{
+content:"";
+position:absolute;
+left:0;
+top:0;
+width:0;
+height:100%;
+background:#3b2416;
+z-index:-1;
+transition:.45s;
+}
+
+.da-card:hover{
+color:#fff;
+transform:translateY(-8px);
+box-shadow:0 20px 40px rgba(0,0,0,.15);
+border-color:#3b2416;
+}
+
+.da-card:hover::before{
+width:100%;
+}
+/* ===== ULTRA PREMIUM BROWN TYPOGRAPHY ===== */
+
+/* Improve rendering quality */
+#da-premium{
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* HERO NAME */
+.da-name{
+  color:#3b2416;
+  letter-spacing:.5px;
+  text-shadow: 
+    0 2px 4px rgba(0,0,0,.25);
+}
+
+/* TITLE */
+.da-title{
+  color:#3b2416;
+  letter-spacing:.4px;
+  text-shadow:
+    0 1px 3px rgba(0,0,0,.25);
+}
+
+/* SECTION HEADINGS */
+.da-skills h2,
+.da-sites h2,
+.da-posters h2{
+  color:#3b2416;
+  letter-spacing:.6px;
+  text-shadow:
+    0 2px 5px rgba(0,0,0,.25);
+}
+
+/* DESCRIPTION TEXT */
+.da-desc,
+.da-badge,
+.da-site-desc{
+  color:#3b2416;
+  text-shadow:
+    0 1px 2px rgba(0,0,0,.2);
+}
+
+/* FOOTER */
+#da-premium footer{
+  color:#3b2416 !important;
+  text-shadow:
+    0 1px 2px rgba(0,0,0,.2);
+}
+  /* ===== PREMIUM MOBILE TEXT ALIGNMENT ===== */
+
+@media (max-width:768px){
 
   .da-name{
     font-size:32px;
     line-height:1.2;
+    text-align:center;
   }
 
   .da-title{
     font-size:16px;
+    line-height:1.5;
+    text-align:center;
   }
 
   .da-desc{
     font-size:15px;
     line-height:1.7;
-  }
-
-  .da-contact{
-    flex-direction:column;
-    align-items:center;
-    gap:15px;
-  }
-
-  .da-btn{
-    width:85%;
-    max-width:320px;
+    padding:0 10px;
     text-align:center;
-    padding:16px 0;
-    display:flex;
-    align-items:center;
-    justify-content:center;
+  }
+
+  .da-badge{
+    font-size:14px;
+    line-height:1.6;
+    text-align:center;
+  }
+
+  .da-site-desc{
+    font-size:15px;
+    line-height:1.7;
+    padding:0 10px;
+    text-align:center;
   }
 
   .da-skills h2,
   .da-sites h2,
   .da-posters h2{
     font-size:26px;
+    text-align:center;
   }
-}
 
+}
 </style>
+
+<!-- VIDEO -->
+<div class="da-video-bg">
+<video class="da-desktop-video" autoplay muted loop playsinline>
+<source src="https://cdn.shopify.com/videos/c/o/v/e9ad0a2b6e1847db8b7e807296edd328.mp4">
+</video>
+<video class="da-mobile-video" autoplay muted loop playsinline>
+<source src="https://cdn.shopify.com/videos/c/o/v/2140dfc0ebf94e0ab1d2f67bc2227e71.mp4">
+</video>
+</div>
 
 <!-- HERO -->
 <div class="da-wrap">
-  <div class="da-photo">
-    <img src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/dilshook_amin_professional.png?v=1772062507">
-  </div>
+<div class="da-photo">
+<img src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/dilshook_amin_professional.png?v=1772062507">
+</div>
 
-  <h1 class="da-name">Dilshook Amin</h1>
-  <div class="da-title">Website Developer • Designer • SEO Specialist</div>
+<h1 class="da-name">Dilshook Amin</h1>
+<div class="da-title">Website Developer • Designer • SEO Specialist</div>
 
-  <div class="da-desc">
-    I am a professional website developer, designer and SEO specialist based in Saudi Arabia.
-    I help companies build high-quality WordPress and Shopify websites, create marketing designs and improve their online visibility.
-  </div>
+<div class="da-desc">
+I am a professional website developer, designer and SEO specialist based in Saudi Arabia.
+I help companies build high-quality WordPress and Shopify websites, create marketing designs and improve their online visibility.
+</div>
 
-  <div class="da-badge">
-    Jeddah, Saudi Arabia — Working with Saudi & international companies
-  </div>
+<div class="da-badge">
+Jeddah, Saudi Arabia — Working with Saudi & international companies
+</div>
 
-  <div class="da-contact">
-    <a href="tel:+966534121598" class="da-btn">Call</a>
-    <a href="https://wa.me/966534121598" class="da-btn">WhatsApp</a>
-    <a href="mailto:amiendilshook55@gmail.com" class="da-btn">Email</a>
-    <a href="https://www.linkedin.com/in/dilshookaminofficial/" target="_blank" class="da-btn">LinkedIn</a>
-  </div>
+<div class="da-contact">
+<a href="tel:+966534121598" class="da-btn">Call</a>
+<a href="https://wa.me/966534121598" class="da-btn">WhatsApp</a>
+<a href="mailto:amiendilshook55@gmail.com" class="da-btn">Email</a>
+<a href="https://www.linkedin.com/in/dilshookaminofficial/" target="_blank" class="da-btn">LinkedIn</a>
+</div>
 </div>
 
 <!-- SKILLS -->
@@ -370,13 +543,13 @@
 <h2>My Expertise</h2>
 <div class="da-grid">
 <div class="da-card" onclick="openSkill('dev')">Website Development</div>
-<div class="da-card" onclick="openSkill('wp')">WordPress & Shopify</div>
+<div class="da-card" onclick="openSkill('wp')">Wordpress & Shopify</div>
 <div class="da-card" onclick="openSkill('design')">Graphic Design</div>
 <div class="da-card" onclick="openSkill('marketing')">Digital Marketing & SEO</div>
 </div>
 </section>
 
-<!-- WEBSITE PROJECTS -->
+<!-- WEBSITE -->
 <section class="da-sites">
 <h2>Website Projects</h2>
 <div class="da-sitegrid">
@@ -385,9 +558,8 @@
 <a href="https://smgksa.net/" target="_blank" class="da-site"><video autoplay muted loop playsinline><source src="https://cdn.shopify.com/videos/c/o/v/af5106c60e264d16be9e381eab172b78.mp4"></video></a>
 <a href="https://smgksa.net/" target="_blank" class="da-site"><video autoplay muted loop playsinline><source src="https://cdn.shopify.com/videos/c/o/v/ac33eb5d108e440b8ee9bb295e0c02e6.mp4"></video></a>
 </div>
-
 <div class="da-site-desc">
-I developed the official website for SMG Logistics & Transport Company, one of the leading logistics companies in Saudi Arabia. The company competes directly with SAL Logistics in the Kingdom, delivering high-standard transport and supply chain solutions both locally and internationally.
+I developed the official website for SMG Logistics & Transport Company, one of the leading logistics companies in Saudi Arabia. The company competes directly with SAL Logistics in the Kingdom, delivering high-standard transport and supply chain solutions both locally and internationally..
 </div>
 </section>
 
@@ -397,20 +569,117 @@ I developed the official website for SMG Logistics & Transport Company, one of t
 <div class="da-carousel">
 <div class="da-track">
 
+<!-- ALL IMAGES -->
 <img src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength__Global_Reach_-1_2__jpg.jpg?v=1772035275">
 <img src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength._Global_Reach.-1_14_.jpg_1.jpg?v=1772035274">
 <img src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength__Global_Reach_-1_1__jpg.jpg?v=1772035274">
 <img src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength__Global_Reach_-1_3__jpg.jpg?v=1772035274">
 <img src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength__Global_Reach_-1_16__jpg.jpg?v=1772035274">
 <img src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/SMG_SAUDI_FOUND_DAY_jpg.jpg?v=1772035274">
+<img src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength._Global_Reach.-1_13_.jpg_1.jpg?v=1772035274">
+<img src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength._Global_Reach.-1_5_.jpg_1.jpg?v=1772035274">
+<img src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength._Global_Reach.-1_8_.jpg_1.jpg?v=1772035274">
 
-<!-- duplicate for infinite scroll -->
+<!-- DUPLICATED -->
 <img src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength__Global_Reach_-1_2__jpg.jpg?v=1772035275">
 <img src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength._Global_Reach.-1_14_.jpg_1.jpg?v=1772035274">
+<img src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength__Global_Reach_-1_1__jpg.jpg?v=1772035274">
+<img src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength__Global_Reach_-1_3__jpg.jpg?v=1772035274">
+<img src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength__Global_Reach_-1_16__jpg.jpg?v=1772035274">
+<img src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/SMG_SAUDI_FOUND_DAY_jpg.jpg?v=1772035274">
+<img src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength._Global_Reach.-1_13_.jpg_1.jpg?v=1772035274">
+<img src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength._Global_Reach.-1_5_.jpg_1.jpg?v=1772035274">
+<img src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength._Global_Reach.-1_8_.jpg_1.jpg?v=1772035274">
 
 </div>
 </div>
 </section>
+
+<!-- IMAGE POPUP -->
+<div class="da-popup" id="popup">
+<img id="popupimg">
+</div>
+
+<!-- SKILL POPUP -->
+<div class="da-skill-popup" id="skillPopup">
+<div class="da-skill-content">
+<span class="da-close" onclick="closeSkill()">×</span>
+<h3 id="skillTitle"></h3>
+<p id="skillText"></p>
+</div>
+</div>
+
+<!-- FOOTER -->
+<footer style="text-align:center;padding:40px 20px;font-weight:600;background:rgba(255,255,255,.7);margin-top:80px;">
+© <span id="year"></span> Dilshook Amin. All Rights Reserved.
+</footer>
+
+<script>
+document.getElementById("year").innerText=new Date().getFullYear();
+
+function openSkill(type){
+ const popup=document.getElementById("skillPopup");
+ const title=document.getElementById("skillTitle");
+ const text=document.getElementById("skillText");
+
+ if(type==="dev"){
+  title.innerText="Complete Website Development";
+  text.innerText="I can develop any category of website based on client requirements — corporate, logistics, eCommerce, portfolio, real estate, medical, educational, business systems, or fully custom platforms. Every website is delivered as a complete professional package including premium visuals, high-quality videos, custom graphics designed by myself, strong structure, speed optimization everything included.";
+ }
+
+ if(type==="wp"){
+  title.innerText="WordPress & Shopify Solutions";
+  text.innerText="Full WordPress and Shopify development including custom themes, store setup, product optimization, secure payment gateway integration, performance tuning, SEO structure, speed optimization and complete launch support. I build scalable, high-performance websites tailored exactly to your business goals.";
+ }
+
+ if(type==="design"){
+  title.innerText="Professional Graphic Design";
+  text.innerText="Complete graphic design solutions including social media posts, covers, banners, website graphics, YouTube covers, profile branding, advertising creatives, company profile designs, promotional materials and all categories of digital media design — built professionally to strengthen your brand identity.";
+ }
+
+ if(type==="marketing"){
+  title.innerText="Digital Marketing & SEO";
+  text.innerText="Advanced digital marketing services including Meta Ads (Facebook & Instagram), Google Ads, LinkedIn Ads, and X (Twitter) Ads campaigns. I also provide complete SEO solutions including keyword research, on-page SEO, technical SEO, content optimization, and strong organic reach growth strategies to improve ranking and online visibility.";
+ }
+
+ popup.classList.add("show");
+}
+function closeSkill(){
+document.getElementById("skillPopup").classList.remove("show");
+}
+
+const popup=document.getElementById("popup");
+const popupimg=document.getElementById("popupimg");
+
+document.querySelectorAll(".da-track img").forEach(img=>{
+img.onclick=()=>{
+popup.classList.add("show");
+popupimg.src=img.src;
+};
+});
+popup.onclick=()=>popup.classList.remove("show");
+  document.getElementById("skillPopup").addEventListener("click",function(e){
+ if(e.target === this){
+   this.classList.remove("show");
+ }
+});
+  const reveals=document.querySelectorAll(".da-wrap, .da-skills, .da-sites, .da-posters");
+
+reveals.forEach(el=>el.classList.add("reveal"));
+
+function revealOnScroll(){
+ const windowHeight=window.innerHeight;
+ reveals.forEach(el=>{
+   const elementTop=el.getBoundingClientRect().top;
+   if(elementTop < windowHeight - 100){
+     el.classList.add("active");
+   }
+ });
+}
+
+window.addEventListener("scroll",revealOnScroll);
+revealOnScroll();
+</script>
 
 </section>
 </body>
