@@ -171,6 +171,36 @@ border-radius:20px;
 background:rgba(255,255,255,.6);
 text-align:center;
 font-weight:700;
+cursor:pointer;
+}
+
+/* ===== SKILL POPUP ===== */
+.da-skill-popup{
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.85);
+display:none;
+align-items:center;
+justify-content:center;
+z-index:10000;
+}
+.da-skill-popup.show{display:flex;}
+.da-skill-content{
+background:#fff;
+padding:50px 35px;
+max-width:600px;
+border-radius:18px;
+text-align:center;
+position:relative;
+color:#3b2416;
+}
+.da-close{
+position:absolute;
+top:15px;
+right:20px;
+font-size:28px;
+cursor:pointer;
+font-weight:800;
 }
 
 /* ================= WEBSITE VIDEOS ================= */
@@ -231,7 +261,7 @@ flex-shrink:0;
 100%{transform:translateX(-50%);}
 }
 
-/* ================= POPUP ================= */
+/* ================= IMAGE POPUP ================= */
 .da-popup{
 position:fixed;
 inset:0;
@@ -252,37 +282,18 @@ display:flex;
 
 /* ================= RESPONSIVE ================= */
 @media(max-width:900px){
-.da-sitegrid{
-grid-template-columns:1fr;
-}
+.da-sitegrid{grid-template-columns:1fr;}
 .da-name{font-size:36px;}
 .da-title{font-size:18px;}
 .da-photo{width:160px;}
 }
-/* ================= MOBILE BUTTON FIX ================= */
 @media (max-width:768px){
-
-.da-contact{
-    flex-direction:column;
-    align-items:center;
-    gap:15px;
-}
-
-.da-btn{
-    width:85%;              /* All same width */
-    max-width:320px;        /* Clean limit */
-    text-align:center;
-    padding:16px 0;         /* Same height */
-    border-radius:14px;     /* Same shape */
-    display:flex;
-    align-items:center;
-    justify-content:center;
-}
-
+.da-contact{flex-direction:column;align-items:center;gap:15px;}
+.da-btn{width:85%;max-width:320px;text-align:center;padding:16px 0;border-radius:14px;display:flex;align-items:center;justify-content:center;}
 }
 </style>
 
-<!-- ================= VIDEO ================= -->
+<!-- VIDEO -->
 <div class="da-video-bg">
 <video class="da-desktop-video" autoplay muted loop playsinline>
 <source src="https://cdn.shopify.com/videos/c/o/v/e9ad0a2b6e1847db8b7e807296edd328.mp4">
@@ -292,7 +303,7 @@ grid-template-columns:1fr;
 </video>
 </div>
 
-<!-- ================= HERO ================= -->
+<!-- HERO -->
 <div class="da-wrap">
 <div class="da-photo">
 <img src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/dilshook_amin_professional.png?v=1772062507">
@@ -318,57 +329,34 @@ Jeddah, Saudi Arabia — Working with Saudi & international companies
 </div>
 </div>
 
-<!-- ================= SKILLS ================= -->
+<!-- SKILLS -->
 <section class="da-skills">
 <h2>My Expertise</h2>
 <div class="da-grid">
-<div class="da-card">Website Development</div>
-<div class="da-card">Wordpress & Shopify</div>
-<div class="da-card">Graphic Design</div>
-<div class="da-card">Digital Marketing & SEO</div>
+<div class="da-card" onclick="openSkill('dev')">Website Development</div>
+<div class="da-card" onclick="openSkill('wp')">Wordpress & Shopify</div>
+<div class="da-card" onclick="openSkill('design')">Graphic Design</div>
+<div class="da-card" onclick="openSkill('marketing')">Digital Marketing & SEO</div>
 </div>
 </section>
 
-<!-- ================= WEBSITE ================= -->
+<!-- WEBSITE -->
 <section class="da-sites">
 <h2>Website Projects</h2>
-
 <div class="da-sitegrid">
-<a href="https://smgksa.net/" target="_blank" class="da-site">
-<video autoplay muted loop playsinline>
-<source src="https://cdn.shopify.com/videos/c/o/v/822af1d6dd9e4795950e263b93c90cb2.mp4">
-</video>
-</a>
-
-<a href="https://smgksa.net/" target="_blank" class="da-site">
-<video autoplay muted loop playsinline>
-<source src="https://cdn.shopify.com/videos/c/o/v/4bd738842e44425384046a1b2a1d19c1.mp4">
-</video>
-</a>
-
-<a href="https://smgksa.net/" target="_blank" class="da-site">
-<video autoplay muted loop playsinline>
-<source src="https://cdn.shopify.com/videos/c/o/v/af5106c60e264d16be9e381eab172b78.mp4">
-</video>
-</a>
-
-<a href="https://smgksa.net/" target="_blank" class="da-site">
-<video autoplay muted loop playsinline>
-<source src="https://cdn.shopify.com/videos/c/o/v/ac33eb5d108e440b8ee9bb295e0c02e6.mp4">
-</video>
-</a>
+<a href="https://smgksa.net/" target="_blank" class="da-site"><video autoplay muted loop playsinline><source src="https://cdn.shopify.com/videos/c/o/v/822af1d6dd9e4795950e263b93c90cb2.mp4"></video></a>
+<a href="https://smgksa.net/" target="_blank" class="da-site"><video autoplay muted loop playsinline><source src="https://cdn.shopify.com/videos/c/o/v/4bd738842e44425384046a1b2a1d19c1.mp4"></video></a>
+<a href="https://smgksa.net/" target="_blank" class="da-site"><video autoplay muted loop playsinline><source src="https://cdn.shopify.com/videos/c/o/v/af5106c60e264d16be9e381eab172b78.mp4"></video></a>
+<a href="https://smgksa.net/" target="_blank" class="da-site"><video autoplay muted loop playsinline><source src="https://cdn.shopify.com/videos/c/o/v/ac33eb5d108e440b8ee9bb295e0c02e6.mp4"></video></a>
 </div>
-
 <div class="da-site-desc">
 I developed the official website for SMG Logistics & Transport Company, one of the leading logistics companies in Saudi Arabia. The company competes directly with SAL Logistics in the Kingdom, delivering high-standard transport and supply chain solutions both locally and internationally..
 </div>
-
 </section>
 
-<!-- ================= POSTERS ================= -->
+<!-- POSTERS -->
 <section class="da-posters">
 <h2>Design Works</h2>
-
 <div class="da-carousel">
 <div class="da-track">
 
@@ -383,7 +371,7 @@ I developed the official website for SMG Logistics & Transport Company, one of t
 <img src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength._Global_Reach.-1_5_.jpg_1.jpg?v=1772035274">
 <img src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength._Global_Reach.-1_8_.jpg_1.jpg?v=1772035274">
 
-<!-- DUPLICATED SAME ORDER FOR PERFECT LOOP -->
+<!-- DUPLICATED -->
 <img src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength__Global_Reach_-1_2__jpg.jpg?v=1772035275">
 <img src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength._Global_Reach.-1_14_.jpg_1.jpg?v=1772035274">
 <img src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength__Global_Reach_-1_1__jpg.jpg?v=1772035274">
@@ -398,12 +386,56 @@ I developed the official website for SMG Logistics & Transport Company, one of t
 </div>
 </section>
 
-<!-- POPUP -->
+<!-- IMAGE POPUP -->
 <div class="da-popup" id="popup">
 <img id="popupimg">
 </div>
 
+<!-- SKILL POPUP -->
+<div class="da-skill-popup" id="skillPopup">
+<div class="da-skill-content">
+<span class="da-close" onclick="closeSkill()">×</span>
+<h3 id="skillTitle"></h3>
+<p id="skillText"></p>
+</div>
+</div>
+
+<!-- FOOTER -->
+<footer style="text-align:center;padding:40px 20px;font-weight:600;background:rgba(255,255,255,.7);margin-top:80px;">
+© <span id="year"></span> Dilshook Amin. All Rights Reserved.
+</footer>
+
 <script>
+document.getElementById("year").innerText=new Date().getFullYear();
+
+function openSkill(type){
+const popup=document.getElementById("skillPopup");
+const title=document.getElementById("skillTitle");
+const text=document.getElementById("skillText");
+
+if(type==="dev"){
+title.innerText="Website Development";
+text.innerText="I develop complete professional websites based on client requirements for any category including corporate, logistics, eCommerce, portfolio and custom business systems.";
+}
+if(type==="wp"){
+title.innerText="WordPress & Shopify";
+text.innerText="Expert in WordPress and Shopify including theme customization, speed optimization, security, plugin integration, payment gateway setup and complete eCommerce development.";
+}
+if(type==="design"){
+title.innerText="Graphic Design";
+text.innerText="Social media posts, company covers, ad creatives, website banners, promotional videos, website images and complete branding materials.";
+}
+if(type==="marketing"){
+title.innerText="Digital Marketing & SEO";
+text.innerText="Organic marketing strategies including Meta Ads (Facebook & Instagram Ads), Google Ads, LinkedIn Ads Campaign Manager, Twitter (X) Ads Manager, keyword research, blog SEO, technical SEO and ranking improvement.";
+}
+popup.classList.add("show");
+}
+
+function closeSkill(){
+document.getElementById("skillPopup").classList.remove("show");
+}
+
 const popup=document.getElementById("popup");
 const popupimg=document.getElementById("popupimg");
 
