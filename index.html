@@ -503,19 +503,31 @@ width:100%;
 </style>
 
 <!-- VIDEO -->
-<div class="da-video-bg">
+/* ================= FIXED IMAGE BACKGROUND ================= */
 
-  <!-- Desktop -->
-  <video class="da-desktop-video" autoplay muted loop playsinline>
-    <source src="https://cdn.shopify.com/videos/c/o/v/9355724489fc423ba259b02f1d8fa1cb.mp4" type="video/mp4">
-  </video>
+.da-video-bg{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+z-index:-1;
 
-  <!-- Mobile (FORCED) -->
-  <video class="da-mobile-video" autoplay muted loop playsinline>
-    <source src="https://cdn.shopify.com/videos/c/o/v/acfaec6d8135488fa6854b761e0129e1.mp4?v=2" type="video/mp4">
-  </video>
+/* Desktop Background */
+background-image:url("https://cdn.shopify.com/s/files/1/0979/8782/1879/files/UUU_22.png?v=1772139498");
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
+background-attachment:fixed;
+}
 
-</div>
+/* Mobile Swap */
+@media(max-width:768px){
+.da-video-bg{
+background-image:url("https://cdn.shopify.com/s/files/1/0979/8782/1879/files/UUU_11.png?v=1772139498");
+background-attachment:scroll; /* smoother on mobile */
+}
+}
 
 <!-- HERO -->
 <div class="da-wrap">
