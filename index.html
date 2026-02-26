@@ -361,14 +361,14 @@ button:active,
   outline: none !important;
   box-shadow: none !important;
 }
-  /* ===== REMOVE WHITE OVERLAY & ADD BLUR SHADE ===== */
+/* ===== SOFT PREMIUM VIDEO OVERLAY ===== */
 
 .da-video-bg::after{
   content:"";
   position:absolute;
   inset:0;
-  
-  background: rgba(20, 12, 8, 0.45);
+
+  background: rgba(20, 12, 8, 0.25); /* reduced from 0.45 to 0.25 */
 
   backdrop-filter: blur(1px);
   -webkit-backdrop-filter: blur(1px);
