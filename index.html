@@ -347,6 +347,26 @@ display:flex;
 #da-premium footer{
   color:#3b2416;
 }
+  /* ===== REMOVE MOBILE TAP BLUE HIGHLIGHT ===== */
+* {
+  -webkit-tap-highlight-color: transparent !important;
+}
+
+/* Remove button focus outline on mobile */
+a, button, .da-card {
+  outline: none !important;
+}
+
+/* Remove grey highlight on some browsers */
+a:focus,
+a:active,
+button:focus,
+button:active,
+.da-card:focus,
+.da-card:active {
+  outline: none !important;
+  box-shadow: none !important;
+}
 </style>
 
 <!-- VIDEO -->
