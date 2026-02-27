@@ -784,6 +784,102 @@ width:100%;
   transform:translateY(-8px);
   box-shadow:0 30px 70px rgba(0,0,0,.5);
 }
+  /* ===================================================== */
+/* ===== UNIFIED BUTTON STYLE HOVER FOR TEXT BOXES ===== */
+/* ===================================================== */
+
+/* ===== HERO DESCRIPTION ===== */
+
+.da-desc{
+  position:relative;
+  overflow:hidden;
+  z-index:1;
+  transition:.4s;
+}
+
+.da-desc::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  width:0;
+  height:100%;
+  background:#ffffff;
+  z-index:-1;
+  transition:.45s;
+}
+
+.da-desc:hover{
+  color:#000000 !important;
+  transform:translateY(-8px);
+  box-shadow:0 25px 60px rgba(0,0,0,.45);
+}
+
+.da-desc:hover::before{
+  width:100%;
+}
+
+/* ===== SMG DESCRIPTION ===== */
+
+.da-site-desc{
+  position:relative;
+  overflow:hidden;
+  z-index:1;
+  transition:.4s;
+}
+
+.da-site-desc::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  width:0;
+  height:100%;
+  background:#ffffff;
+  z-index:-1;
+  transition:.45s;
+}
+
+.da-site-desc:hover{
+  color:#000000 !important;
+  transform:translateY(-8px);
+  box-shadow:0 30px 70px rgba(0,0,0,.5);
+}
+
+.da-site-desc:hover::before{
+  width:100%;
+}
+
+/* ===== LOCATION BADGE ===== */
+
+.da-badge{
+  position:relative;
+  overflow:hidden;
+  z-index:1;
+  transition:.4s;
+}
+
+.da-badge::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  width:0;
+  height:100%;
+  background:#ffffff;
+  z-index:-1;
+  transition:.45s;
+}
+
+.da-badge:hover{
+  color:#000000 !important;
+  transform:translateY(-6px);
+  box-shadow:0 20px 40px rgba(0,0,0,.4);
+}
+
+.da-badge:hover::before{
+  width:100%;
+}
 </style>
 
 <!-- FIXED BACKGROUND IMAGE -->
