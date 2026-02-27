@@ -656,22 +656,17 @@ width:100%;
   margin:auto;
   padding:60px 40px;
   border-radius:24px;
-background:linear-gradient(
-  180deg,
-  rgba(0,0,0,.78) 0%,
-  rgba(0,0,0,.65) 100%
-);
 
-  box-shadow:0 30px 80px rgba(0,0,0,.35);
+  background:transparent; /* removed dark overlay */
+
+  box-shadow:none; /* remove shadow */
 }
 
 /* Make text white for strong contrast */
 .da-name,
-.da-title,
-.da-desc,
-.da-badge{
-  color:#ffffff !important;
-  text-shadow:none !important;
+.da-title{
+  color:#3b2416 !important;
+  text-shadow:0 2px 4px rgba(0,0,0,.25);
 }
 
 /* Mobile adjustment */
@@ -731,6 +726,29 @@ background:linear-gradient(
 
   border-top:1px solid rgba(255,255,255,.15);
 
+  color:#ffffff !important;
+  text-shadow:none !important;
+}
+  /* ===== DARK OVERLAY ONLY FOR DESCRIPTION AREA ===== */
+
+.da-desc{
+  background:linear-gradient(
+    180deg,
+    rgba(0,0,0,.80),
+    rgba(0,0,0,.65)
+  );
+  padding:25px 30px;
+  border-radius:18px;
+  color:#ffffff !important;
+  text-shadow:none !important;
+}
+
+.da-badge{
+  margin-top:20px;
+  display:inline-block;
+  background:rgba(0,0,0,.75);
+  padding:10px 20px;
+  border-radius:30px;
   color:#ffffff !important;
   text-shadow:none !important;
 }
