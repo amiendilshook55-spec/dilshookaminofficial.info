@@ -1017,6 +1017,53 @@ width:100%;
 .da-badge:hover::before{
   width:100%;
 }
+  /* ================================================= */
+/* ===== MOBILE ONLY TITLE BOX STYLE ============== */
+/* ================================================= */
+
+@media (max-width:768px){
+
+  .da-title{
+    background:#3b2416;
+    color:#ffffff !important;
+    text-shadow:none !important;
+
+    padding:14px 22px;
+    border-radius:30px;
+    display:inline-block;
+    margin-top:18px;
+
+    position:relative;
+    overflow:hidden;
+    z-index:1;
+
+    transition:.4s ease;
+  }
+
+  /* White slide hover animation */
+  .da-title::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:0;
+    height:100%;
+    background:#ffffff;
+    z-index:-1;
+    transition:.45s;
+  }
+
+  .da-title:hover{
+    color:#000000 !important;
+    transform:translateY(-6px);
+    box-shadow:0 20px 40px rgba(0,0,0,.4);
+  }
+
+  .da-title:hover::before{
+    width:100%;
+  }
+
+}
 </style>
 
 <!-- FIXED BACKGROUND IMAGE -->
