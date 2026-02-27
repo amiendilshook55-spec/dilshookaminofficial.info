@@ -336,8 +336,23 @@ display:flex;
 .da-photo{width:160px;}
 }
 @media (max-width:768px){
-.da-contact{flex-direction:column;align-items:center;gap:15px;}
-.da-btn{width:85%;max-width:320px;text-align:center;padding:16px 0;border-radius:14px;display:flex;align-items:center;justify-content:center;}
+
+  .da-contact{
+    flex-direction:row;   /* keep in row */
+    gap:12px;
+  }
+
+  .da-btn{
+    width:50px;          /* smaller box */
+    height:50px;         /* smaller box */
+    border-radius:14px;
+  }
+
+  .da-btn img{
+    width:22px;          /* slightly smaller icon */
+    height:22px;
+  }
+
 }
   /* ===== EXPERTISE POPUP ANIMATION ===== */
 .da-skill-popup{
@@ -1061,6 +1076,16 @@ width:100%;
 
   .da-title:hover::before{
     width:100%;
+  }
+
+}
+  /* ===== FORCE TITLE SINGLE LINE ON MOBILE ===== */
+@media (max-width:768px){
+
+  .da-title{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
 }
