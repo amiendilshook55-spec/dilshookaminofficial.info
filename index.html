@@ -893,6 +893,88 @@ width:100%;
 .da-badge:hover::before{
   width:100%;
 }
+  /* ================================================= */
+/* ===== FINAL HERO DESCRIPTION STYLE (CLEAN) ===== */
+/* ================================================= */
+
+.da-desc{
+  background:#3b2416 !important;   /* same as button */
+  color:#ffffff !important;
+  text-shadow:none !important;
+
+  padding:28px 35px;
+  border-radius:18px;
+
+  position:relative;
+  overflow:hidden;
+  z-index:1;
+
+  transition:.4s;
+}
+
+/* Keep your white slide hover */
+.da-desc::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  width:0;
+  height:100%;
+  background:#ffffff;
+  z-index:-1;
+  transition:.45s;
+}
+
+.da-desc:hover{
+  color:#000000 !important;
+  transform:translateY(-8px);
+  box-shadow:0 25px 60px rgba(0,0,0,.45);
+}
+
+.da-desc:hover::before{
+  width:100%;
+}
+  /* ================================================= */
+/* ===== FINAL SMG DESCRIPTION STYLE (MATCH BTN) === */
+/* ================================================= */
+
+.da-site-desc{
+  background:#3b2416 !important;  /* same as button */
+  color:#ffffff !important;
+  text-shadow:none !important;
+
+  padding:45px 55px;
+  border-radius:22px;
+
+  position:relative;
+  overflow:hidden;
+  z-index:1;
+
+  transition:.4s;
+}
+
+/* Keep same white slide animation */
+.da-site-desc::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  width:0;
+  height:100%;
+  background:#ffffff;
+  z-index:-1;
+  transition:.45s;
+}
+
+.da-site-desc:hover{
+  color:#000000 !important;
+  transform:translateY(-8px);
+  box-shadow:0 30px 70px rgba(0,0,0,.5);
+}
+
+.da-site-desc:hover::before{
+  width:100%;
+}
 </style>
 
 <!-- FIXED BACKGROUND IMAGE -->
