@@ -975,6 +975,48 @@ width:100%;
 .da-site-desc:hover::before{
   width:100%;
 }
+  /* ================================================= */
+/* ===== FINAL LOCATION BADGE STYLE (MATCH BTN) ==== */
+/* ================================================= */
+
+.da-badge{
+  background:#3b2416 !important;  /* same brown as buttons */
+  color:#ffffff !important;
+  text-shadow:none !important;
+
+  padding:12px 26px;
+  border-radius:30px;
+  display:inline-block;
+
+  position:relative;
+  overflow:hidden;
+  z-index:1;
+
+  transition:.4s;
+}
+
+/* Same white slide animation */
+.da-badge::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  width:0;
+  height:100%;
+  background:#ffffff;
+  z-index:-1;
+  transition:.45s;
+}
+
+.da-badge:hover{
+  color:#000000 !important;
+  transform:translateY(-6px);
+  box-shadow:0 20px 40px rgba(0,0,0,.4);
+}
+
+.da-badge:hover::before{
+  width:100%;
+}
 </style>
 
 <!-- FIXED BACKGROUND IMAGE -->
