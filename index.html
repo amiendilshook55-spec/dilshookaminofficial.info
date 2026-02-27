@@ -152,13 +152,26 @@ flex-wrap:wrap;
 .da-btn{
 position:relative;
 background:#3b2416;
-color:#fff;
-padding:16px 34px;
-border-radius:12px;
-text-decoration:none;
-font-weight:700;
+width:65px;
+height:65px;
+border-radius:16px;
+display:flex;
+align-items:center;
+justify-content:center;
 overflow:hidden;
 transition:.4s;
+text-decoration:none;
+}
+  .da-btn img{
+  width:28px;
+  height:28px;
+  object-fit:contain;
+  z-index:2;
+  transition:.4s;
+}
+
+.da-btn:hover img{
+  filter:invert(1);
 }
 
 .da-btn::before{
