@@ -1247,6 +1247,17 @@ function revealOnScroll(){
 
 window.addEventListener("scroll",revealOnScroll);
 revealOnScroll();
+  /* ===== FORCE PAGE TO LOAD AT TOP ===== */
+window.onbeforeunload = function () {
+  window.scrollTo(0, 0);
+};
+
+window.addEventListener("load", function(){
+  window.scrollTo(0,0);
+});
+  if ('scrollRestoration' in history) {
+  history.scrollRestoration = 'manual';
+}
 </script>
 
 </section>
