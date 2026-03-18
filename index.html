@@ -30,8 +30,8 @@ z-index:1;
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   z-index: -1;
 
   background-image: url("https://cdn.shopify.com/s/files/1/0979/8782/1879/files/UUU_22.webp?v=1772139841");
@@ -39,12 +39,26 @@ z-index:1;
   background-position: center;
   background-repeat: no-repeat;
 
-  /* MOBILE FIXES */
-  background-attachment: scroll; /* mobile friendly */
-  transform: translate3d(0,0,0); /* prevents flicker */
+  transform: translate3d(0,0,0);
   will-change: transform;
+
+  /* Force mobile-friendly */
+  background-attachment: scroll;
 }
 
+@media (max-width: 768px) {
+  .da-video-bg {
+    background-image: url("https://cdn.shopify.com/s/files/1/0979/8782/1879/files/UUU_11.webp?v=1772139841");
+
+    /* Android fix */
+    width: 100vw;
+    height: 120vh; /* tall enough to cover address bar */
+    min-height: 120vh;
+
+    transform: translateZ(0);
+    will-change: transform;
+  }
+}
 /* Optional: swap image on mobile */
 @media(max-width:768px){
   .da-video-bg {
