@@ -1306,6 +1306,58 @@ width:100%;
     will-change: transform;
   }
 }
+  /* ================= PROJECT WRAPPER & VISIT BUTTON ================= */
+.da-project-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 22px;
+  width: 100%;
+  max-width: 380px;
+}
+
+.da-visit-btn {
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #ffffff !important;
+  text-decoration: none;
+  padding: 14px 35px;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  transition: all 0.4s ease;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.25);
+}
+
+/* Premium Brown Slide Hover */
+.da-visit-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: #3b2416;
+  z-index: -1;
+  transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.da-visit-btn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  border-color: #3b2416;
+}
+
+.da-visit-btn:hover::before {
+  width: 100%;
+}
 </style>
 
 <div class="da-video-bg"></div>
@@ -1360,14 +1412,20 @@ Jeddah, Saudi Arabia — Working with Saudi & international companies
 <section class="da-sites">
 <h2>Website Projects</h2>
 <div class="da-logo-grid">
-  <div class="da-logo-card" onclick="openVideo('smg')">
-    <img src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/SMG_ORIGINAL_LOGO_WEBSITE_WHITE.png?v=1775429209" alt="SMG Logistics">
-    <span class="da-logo-overlay-text">Click to Play Video</span>
+  <div class="da-project-wrapper">
+    <div class="da-logo-card" onclick="openVideo('smg')">
+      <img src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/SMG_ORIGINAL_LOGO_WEBSITE_WHITE.png?v=1775429209" alt="SMG Logistics">
+      <span class="da-logo-overlay-text">Click to Play Video</span>
+    </div>
+    <a href="https://smgksa.net/" target="_blank" class="da-visit-btn">Visit Website</a>
   </div>
   
-  <div class="da-logo-card" onclick="openVideo('kenz')">
-    <img src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Kenz_Final-4.png?v=1775429178" alt="Kenz Al Arabia">
-    <span class="da-logo-overlay-text">Click to Play Video</span>
+  <div class="da-project-wrapper">
+    <div class="da-logo-card" onclick="openVideo('kenz')">
+      <img src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Kenz_Final-4.png?v=1775429178" alt="Kenz Al Arabia">
+      <span class="da-logo-overlay-text">Click to Play Video</span>
+    </div>
+    <a href="https://www.kenzalarabia.com/" target="_blank" class="da-visit-btn">Visit Website</a>
   </div>
 </div>
 <div class="da-site-desc">
