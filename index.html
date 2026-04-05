@@ -7,7 +7,6 @@
 </head>
 
 <body>
-<!-- PREMIUM LOADER -->
 <div id="da-loader"></div>
 <section id="da-premium">
 
@@ -270,25 +269,85 @@ cursor:pointer;
 font-weight:800;
 }
 
-/* ================= WEBSITE VIDEOS ================= */
-.da-sitegrid{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:40px;
+/* ================= NEW WEBSITE LOGO GRID ================= */
+.da-logo-grid {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
 }
 
-.da-site{
-border-radius:22px;
-overflow:hidden;
-box-shadow:0 25px 50px rgba(0,0,0,.25);
-transition:.4s;
+.da-logo-card {
+  position: relative;
+  background: rgba(0, 0, 0, 0.65); /* Dark enough for both logos */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 22px;
+  padding: 40px;
+  width: 100%;
+  max-width: 380px;
+  height: 240px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1;
 }
-.da-site:hover{
-transform:translateY(-8px);
+
+.da-logo-card img {
+  max-width: 75%;
+  max-height: 75%;
+  object-fit: contain;
+  z-index: 2;
+  transition: all 0.5s ease;
+  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3));
 }
-.da-site video{
-width:100%;
-display:block;
+
+.da-logo-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: #3b2416; /* Premium Brown Hover */
+  z-index: 0;
+  transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.da-logo-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+  border-color: #3b2416;
+}
+
+.da-logo-card:hover::before {
+  width: 100%;
+}
+
+.da-logo-card:hover img {
+  transform: scale(1.1);
+}
+
+.da-logo-overlay-text {
+  position: absolute;
+  bottom: 20px;
+  color: #fff;
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.4s ease;
+  z-index: 2;
+}
+
+.da-logo-card:hover .da-logo-overlay-text {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .da-site-desc{
@@ -300,6 +359,61 @@ line-height:1.8;
 margin-left:auto;
 margin-right:auto;
 text-align:center;
+}
+
+/* ================= VIDEO POPUP MODAL ================= */
+.da-video-popup {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.95);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 10001;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.da-video-popup.show {
+  display: flex;
+  opacity: 1;
+}
+
+.da-video-content {
+  position: relative;
+  width: 90%;
+  max-width: 1000px;
+  background: #000;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.8);
+  transform: scale(0.95);
+  transition: transform 0.4s ease;
+}
+
+.da-video-popup.show .da-video-content {
+  transform: scale(1);
+}
+
+.da-video-content video {
+  width: 100%;
+  display: block;
+}
+
+.da-close-video {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 45px;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 400;
+  z-index: 10002;
+  transition: 0.3s;
+}
+.da-close-video:hover {
+  color: #ddd;
+  transform: scale(1.1);
 }
 
 /* ================= POSTER CAROUSEL FIXED ================= */
@@ -349,7 +463,6 @@ display:flex;
 
 /* ================= RESPONSIVE ================= */
 @media(max-width:900px){
-.da-sitegrid{grid-template-columns:1fr;}
 .da-name{font-size:36px;}
 .da-title{font-size:18px;}
 .da-photo{width:160px;}
@@ -372,6 +485,10 @@ display:flex;
     height:22px;
   }
 
+  .da-logo-card {
+    max-width: 100%;
+    height: 200px;
+  }
 }
   /* ===== EXPERTISE POPUP ANIMATION ===== */
 .da-skill-popup{
@@ -449,7 +566,7 @@ display:flex;
 }
 
 /* Remove button focus outline on mobile */
-a, button, .da-card {
+a, button, .da-card, .da-logo-card {
   outline: none !important;
 }
 
@@ -459,7 +576,9 @@ a:active,
 button:focus,
 button:active,
 .da-card:focus,
-.da-card:active {
+.da-card:active,
+.da-logo-card:focus,
+.da-logo-card:active {
   outline: none !important;
   box-shadow: none !important;
 }
@@ -1189,10 +1308,8 @@ width:100%;
 }
 </style>
 
-<!-- FIXED BACKGROUND IMAGE -->
 <div class="da-video-bg"></div>
 
-<!-- HERO -->
 <div class="da-wrap">
 <div class="da-photo">
 <img src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/InShot_20260318_084102057_jpg.jpg?v=1773813749">
@@ -1230,7 +1347,6 @@ Jeddah, Saudi Arabia — Working with Saudi & international companies
 
 </div>
 </div>
-<!-- SKILLS -->
 <section class="da-skills">
 <h2>My Expertise</h2>
 <div class="da-grid">
@@ -1241,27 +1357,36 @@ Jeddah, Saudi Arabia — Working with Saudi & international companies
 </div>
 </section>
 
-<!-- WEBSITE -->
 <section class="da-sites">
 <h2>Website Projects</h2>
-<div class="da-sitegrid">
-<a href="https://smgksa.net/" target="_blank" class="da-site"><video autoplay muted loop playsinline><source src="https://cdn.shopify.com/videos/c/o/v/822af1d6dd9e4795950e263b93c90cb2.mp4"></video></a>
-<a href="https://smgksa.net/" target="_blank" class="da-site"><video autoplay muted loop playsinline><source src="https://cdn.shopify.com/videos/c/o/v/4bd738842e44425384046a1b2a1d19c1.mp4"></video></a>
-<a href="https://smgksa.net/" target="_blank" class="da-site"><video autoplay muted loop playsinline><source src="https://cdn.shopify.com/videos/c/o/v/af5106c60e264d16be9e381eab172b78.mp4"></video></a>
-<a href="https://smgksa.net/" target="_blank" class="da-site"><video autoplay muted loop playsinline><source src="https://cdn.shopify.com/videos/c/o/v/ac33eb5d108e440b8ee9bb295e0c02e6.mp4"></video></a>
+<div class="da-logo-grid">
+  <div class="da-logo-card" onclick="openVideo('smg')">
+    <img src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/SMG_ORIGINAL_LOGO_WEBSITE_WHITE.png?v=1775429209" alt="SMG Logistics">
+    <span class="da-logo-overlay-text">Click to Play Video</span>
+  </div>
+  
+  <div class="da-logo-card" onclick="openVideo('kenz')">
+    <img src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Kenz_Final-4.png?v=1775429178" alt="Kenz Al Arabia">
+    <span class="da-logo-overlay-text">Click to Play Video</span>
+  </div>
 </div>
 <div class="da-site-desc">
-I developed the official website for SMG Logistics & Transport Company, one of the leading logistics companies in Saudi Arabia. The company competes directly with SAL Logistics in the Kingdom, delivering high-standard transport and supply chain solutions both locally and internationally.
+I have developed the official websites for leading companies in Saudi Arabia, including SMG Logistics & Transport Company and Kenz Al Arabia Contracting Company. I deliver high-standard platforms with strong structures, modern designs, and robust performance. Click the company logos above to preview the completed projects.
 </div>
 </section>
 
-<!-- POSTERS -->
+<span class="da-close-video" id="closeVideoBtn" style="display: none;" onclick="closeVideo()">×</span>
+<div class="da-video-popup" id="videoPopup">
+  <div class="da-video-content">
+    <video id="popupVideo" controls playsinline></video>
+  </div>
+</div>
+
 <section class="da-posters">
 <h2>Design Works</h2>
 <div class="da-carousel">
 <div class="da-track">
 
-<!-- ALL IMAGES -->
 <img src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength__Global_Reach_-1_2__jpg.jpg?v=1772035275">
 <img src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength._Global_Reach.-1_14_.jpg_1.jpg?v=1772035274">
 <img src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength__Global_Reach_-1_1__jpg.jpg?v=1772035274">
@@ -1272,7 +1397,6 @@ I developed the official website for SMG Logistics & Transport Company, one of t
 <img src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength._Global_Reach.-1_5_.jpg_1.jpg?v=1772035274">
 <img src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength._Global_Reach.-1_8_.jpg_1.jpg?v=1772035274">
 
-<!-- DUPLICATED -->
 <img src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength__Global_Reach_-1_2__jpg.jpg?v=1772035275">
 <img src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength._Global_Reach.-1_14_.jpg_1.jpg?v=1772035274">
 <img src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength__Global_Reach_-1_1__jpg.jpg?v=1772035274">
@@ -1287,12 +1411,10 @@ I developed the official website for SMG Logistics & Transport Company, one of t
 </div>
 </section>
 
-<!-- IMAGE POPUP -->
 <div class="da-popup" id="popup">
 <img id="popupimg">
 </div>
 
-<!-- SKILL POPUP -->
 <div class="da-skill-popup" id="skillPopup">
 <div class="da-skill-content">
 <span class="da-close" onclick="closeSkill()">×</span>
@@ -1301,13 +1423,52 @@ I developed the official website for SMG Logistics & Transport Company, one of t
 </div>
 </div>
 
-<!-- FOOTER -->
 <footer>
 © <span id="year"></span> Dilshook Amin. All Rights Reserved.
 </footer>
 <script>
 document.getElementById("year").innerText=new Date().getFullYear();
 
+/* ================= VIDEO POPUP LOGIC ================= */
+const smgVideoUrl = "https://cdn.shopify.com/videos/c/o/v/5f9eb881fc55420aa3e0a86896f85781.mp4";
+const kenzVideoUrl = "https://cdn.shopify.com/videos/c/o/v/f91c8729166a4ff5bc2f239c03f96848.mp4";
+
+function openVideo(company) {
+  const popup = document.getElementById("videoPopup");
+  const videoEl = document.getElementById("popupVideo");
+  const closeBtn = document.getElementById("closeVideoBtn");
+
+  if (company === 'smg') {
+    videoEl.src = smgVideoUrl;
+  } else if (company === 'kenz') {
+    videoEl.src = kenzVideoUrl;
+  }
+
+  popup.classList.add("show");
+  closeBtn.style.display = "block";
+  videoEl.play();
+}
+
+function closeVideo() {
+  const popup = document.getElementById("videoPopup");
+  const videoEl = document.getElementById("popupVideo");
+  const closeBtn = document.getElementById("closeVideoBtn");
+  
+  popup.classList.remove("show");
+  closeBtn.style.display = "none";
+  videoEl.pause();
+  videoEl.src = ""; // Clear source to stop downloading
+}
+
+// Close video when clicking outside the player
+document.getElementById("videoPopup").addEventListener("click", function(e) {
+  if (e.target === this) {
+    closeVideo();
+  }
+});
+
+
+/* ================= SKILLS LOGIC ================= */
 function openSkill(type){
  const popup=document.getElementById("skillPopup");
  const title=document.getElementById("skillTitle");
@@ -1339,6 +1500,7 @@ function closeSkill(){
 document.getElementById("skillPopup").classList.remove("show");
 }
 
+/* ================= IMAGE CAROUSEL LOGIC ================= */
 const popup=document.getElementById("popup");
 const popupimg=document.getElementById("popupimg");
 
@@ -1354,7 +1516,9 @@ popup.onclick=()=>popup.classList.remove("show");
    this.classList.remove("show");
  }
 });
-  const reveals=document.querySelectorAll(".da-wrap, .da-skills, .da-sites, .da-posters");
+  
+/* ================= SCROLL REVEAL ================= */
+const reveals=document.querySelectorAll(".da-wrap, .da-skills, .da-sites, .da-posters");
 
 reveals.forEach(el=>el.classList.add("reveal"));
 
