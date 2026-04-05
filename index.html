@@ -1358,6 +1358,55 @@ width:100%;
 .da-visit-btn:hover::before {
   width: 100%;
 }
+  /* ================= MOBILE OVERRIDE FOR WEBSITE PROJECTS (SIDE-BY-SIDE) ================= */
+@media (max-width: 768px) {
+  /* Force grid into one line */
+  .da-logo-grid {
+    flex-wrap: nowrap !important; 
+    gap: 12px !important;         
+    padding: 0 5px;
+  }
+  
+  /* Make each project take exactly half the screen */
+  .da-project-wrapper {
+    width: 50% !important;        
+    gap: 12px !important;         
+  }
+
+  /* Shrink the logo card */
+  .da-logo-card {
+    height: 130px !important;     
+    padding: 15px !important;     
+    border-radius: 16px !important;
+  }
+
+  /* Make logo image fit nicely inside smaller box */
+  .da-logo-card img {
+    max-width: 85% !important;    
+    max-height: 85% !important;
+  }
+
+  /* Shrink hover text and center it */
+  .da-logo-overlay-text {
+    font-size: 9px !important;   
+    bottom: 12px !important;
+    letter-spacing: 1px !important;
+    text-align: center;
+    width: 100%;
+    left: 0;
+  }
+
+  /* Shrink the visit button */
+  .da-visit-btn {
+    padding: 10px 5px !important;   
+    font-size: 11px !important;      
+    width: 100% !important;          
+    text-align: center !important;
+    box-sizing: border-box !important;
+    letter-spacing: 1px !important;
+    border-radius: 20px !important;
+  }
+}
 </style>
 
 <div class="da-video-bg"></div>
