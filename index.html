@@ -1736,6 +1736,28 @@ window.addEventListener("load", function() {
     setTimeout(() => loader.classList.add("hide"), 300);
   }
 });
+  /* ================= CLOSE POPUPS WITH ESCAPE KEY (PC) ================= */
+document.addEventListener("keydown", function(e) {
+  if (e.key === "Escape") {
+    // Close Image Popup
+    const imagePopup = document.getElementById("popup");
+    if (imagePopup.classList.contains("show")) {
+      imagePopup.classList.remove("show");
+    }
+    
+    // Close Video Popup (also stops the video)
+    const videoPopup = document.getElementById("videoPopup");
+    if (videoPopup.classList.contains("show")) {
+      closeVideo(); 
+    }
+    
+    // Close Skill Popup
+    const skillPopup = document.getElementById("skillPopup");
+    if (skillPopup.classList.contains("show")) {
+      skillPopup.classList.remove("show");
+    }
+  }
+});
 </script>
 
 </section>
