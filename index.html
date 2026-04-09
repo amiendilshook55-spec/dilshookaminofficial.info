@@ -416,46 +416,93 @@ text-align:center;
   transform: scale(1.1);
 }
 
-/* ================= POSTER CAROUSEL FIXED (OPTIMIZED) ================= */
-.da-carousel {
-  overflow: hidden;
-  position: relative;
-  width: 100%;
+/* ================= PREMIUM SWIPEABLE GALLERIES ================= */
+.da-category-title {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 800;
+  color: #3b2416;
+  margin-bottom: 25px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 0 1px 2px rgba(0,0,0,.15);
 }
 
-.da-track {
+.da-swipe-container {
+  width: 100%;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 25px;
+}
+
+/* Custom Premium Brown Scrollbar for PC */
+.da-swipe-container::-webkit-scrollbar {
+  height: 6px;
+}
+.da-swipe-container::-webkit-scrollbar-track {
+  background: rgba(59, 36, 22, 0.1);
+  border-radius: 10px;
+}
+.da-swipe-container::-webkit-scrollbar-thumb {
+  background: #3b2416;
+  border-radius: 10px;
+}
+
+.da-swipe-track {
   display: flex;
   gap: 30px;
+  padding: 15px 5px;
   width: max-content;
-  transform: translate3d(0, 0, 0);
-  will-change: transform;
-
-  /* STOP animation by default */
-  animation: none;
 }
 
-/* START animation only when visible */
-.da-posters.active .da-track {
-  animation: da-scroll 45s linear infinite;
-}
-
-.da-track img {
-  height: 320px;
+.da-swipe-track img {
+  height: 400px;
+  width: auto;
   border-radius: 18px;
+  object-fit: cover;
+  scroll-snap-align: center;
   cursor: pointer;
-  flex-shrink: 0;
-  /* Prevents mobile flickering */
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+  border: 2px solid transparent;
+  transition: all 0.4s ease;
+  transform: translateZ(0); 
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
 }
 
-@keyframes da-scroll {
-  0% { transform: translate3d(0, 0, 0); }
-  100% { transform: translate3d(-50%, 0, 0); }
+/* Premium Brown Hover Effect */
+.da-swipe-track img:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 50px rgba(59,36,22,0.35);
+  border-color: #3b2416;
 }
 
+/* Profile Pictures Category (Square) */
+.da-profiles .da-swipe-track img {
+  height: 280px;
+  aspect-ratio: 1 / 1;
+}
+
+/* ================= MOBILE ADJUSTMENTS ================= */
 @media (max-width: 768px) {
-  .da-track img { height: 240px; } /* Slightly smaller for mobile performance */
+  .da-category-title {
+    font-size: 16px;
+    letter-spacing: 1.5px;
+  }
+  
+  .da-swipe-track {
+    gap: 18px;
+  }
+
+  .da-swipe-track img {
+    height: 320px;
+    border-radius: 14px;
+  }
+
+  .da-profiles .da-swipe-track img {
+    height: 220px;
+  }
 }
 
 /* ================= IMAGE POPUP ================= */
@@ -1432,61 +1479,6 @@ width:100%;
     border-radius: 20px !important;
   }
 }
-  /* ================================================= */
-/* ===== FIX FOR DESIGN WORKS SCROLL LAG ===== */
-/* ================================================= */
-
-/* 1. Stop the scroll reveal from conflicting with the continuous animation */
-.da-posters.reveal {
-  transform: translateZ(0) !important; /* Force its own GPU layer */
-  transition: opacity 0.8s ease-out !important; /* Strictly ONLY transition opacity */
-  will-change: opacity;
-}
-
-/* 2. Contain the carousel so it doesn't force the whole page to repaint */
-.da-carousel {
-  overflow: hidden;
-  position: relative;
-  width: 100%;
-  contain: paint layout; /* MASSIVE PERFORMANCE BOOST: Isolates the calculations */
-  transform: translateZ(0); 
-}
-
-/* 4. Hardware-accelerate the images to stop mobile flickering/stuttering */
-.da-track img {
-  height: 320px;
-  width: auto; /* Fixes layout thrashing */
-  border-radius: 18px;
-  flex-shrink: 0;
-  transform: translateZ(0); 
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-}
-
-/* 5. Mobile sizing */
-@media (max-width: 768px) {
-  .da-track img { 
-    height: 240px; 
-  }
-}
-  .da-track img {
-  width: 300px; /* or fixed */
-  height: 320px;
-  object-fit: cover;
-}
-.da-track {
-  display: flex;
-  gap: 30px;
-  width: max-content;
-  transform: translate3d(0, 0, 0);
-  will-change: transform;
-  contain: layout paint;
-  animation: none;
-}
-
-.da-posters.active .da-track {
-  animation: da-scroll 45s linear infinite;
-}
 </style>
 
 <div class="da-video-bg"></div>
@@ -1570,32 +1562,30 @@ I have developed the official websites for leading companies in Saudi Arabia, in
 </div>
 
 <section class="da-posters">
-<h2>Design Works</h2>
-<div class="da-carousel">
-<div class="da-track">
+  <h2>Design Works</h2>
 
-<img loading="lazy" src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength__Global_Reach_-1_2__jpg.jpg?v=1772035275">
-<img loading="lazy" src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength._Global_Reach.-1_14_.jpg_1.jpg?v=1772035274">
-<img loading="lazy" src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength__Global_Reach_-1_1__jpg.jpg?v=1772035274">
-<img loading="lazy" src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength__Global_Reach_-1_3__jpg.jpg?v=1772035274">
-<img loading="lazy" src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength__Global_Reach_-1_16__jpg.jpg?v=1772035274">
-<img loading="lazy" src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/SMG_SAUDI_FOUND_DAY_jpg.jpg?v=1772035274">
-<img loading="lazy" src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength._Global_Reach.-1_13_.jpg_1.jpg?v=1772035274">
-<img loading="lazy" src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength._Global_Reach.-1_5_.jpg_1.jpg?v=1772035274">
-<img loading="lazy" src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength._Global_Reach.-1_8_.jpg_1.jpg?v=1772035274">
+  <div class="da-category-title">Company Profile Branding</div>
+  <div class="da-swipe-container da-profiles">
+    <div class="da-swipe-track">
+      <img loading="lazy" src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Kenz_Contracting_logo_design.webp?v=1775754585" alt="Kenz Profile">
+      <img loading="lazy" src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/SMG_logo_round_profile.webp?v=1775754586" alt="SMG Profile">
+    </div>
+  </div>
 
-<img loading="lazy" src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength__Global_Reach_-1_2__jpg.jpg?v=1772035275">
-<img loading="lazy" src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength._Global_Reach.-1_14_.jpg_1.jpg?v=1772035274">
-<img loading="lazy" src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength__Global_Reach_-1_1__jpg.jpg?v=1772035274">
-<img loading="lazy" src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength__Global_Reach_-1_3__jpg.jpg?v=1772035274">
-<img loading="lazy" src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength__Global_Reach_-1_16__jpg.jpg?v=1772035274">
-<img loading="lazy" src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/SMG_SAUDI_FOUND_DAY_jpg.jpg?v=1772035274">
-<img loading="lazy" src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength._Global_Reach.-1_13_.jpg_1.jpg?v=1772035274">
-<img loading="lazy" src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength._Global_Reach.-1_5_.jpg_1.jpg?v=1772035274">
-<img loading="lazy" src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength._Global_Reach.-1_8_.jpg_1.jpg?v=1772035274">
-
-</div>
-</div>
+  <div class="da-category-title" style="margin-top: 50px;">Marketing Posters</div>
+  <div class="da-swipe-container">
+    <div class="da-swipe-track">
+      <img loading="lazy" src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/smg_ramadan.webp?v=1775754585" alt="Poster 1">
+      <img loading="lazy" src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/kenz_original_photo.webp?v=1775754586" alt="Poster 2">
+      <img loading="lazy" src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength._Global_Reach.-1_5_.jpg_1.webp?v=1775754588" alt="Poster 3">
+      <img loading="lazy" src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength__Global_Reach_-1_15__jpg.webp?v=1775754588" alt="Poster 4">
+      <img loading="lazy" src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/www_kenzalarabia_com_jpg.webp?v=1775754588" alt="Poster 5">
+      <img loading="lazy" src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/SMG_SAUDI_FOUND_DAY_jpg.webp?v=1775754588" alt="Poster 6">
+      <img loading="lazy" src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength._Global_Reach.-1_13_.jpg_1.webp?v=1775754588" alt="Poster 7">
+      <img loading="lazy" src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/SMG_KSA_RAMADAN_POSTER_jpg.webp?v=1775754588" alt="Poster 8">
+      <img loading="lazy" src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength__Global_Reach_-1_3__jpg.webp?v=1775754720" alt="Poster 9">
+    </div>
+  </div>
 </section>
 
 <div class="da-popup" id="popup">
@@ -1687,21 +1677,28 @@ function closeSkill(){
 document.getElementById("skillPopup").classList.remove("show");
 }
 
-/* ================= IMAGE CAROUSEL LOGIC ================= */
-const popup=document.getElementById("popup");
-const popupimg=document.getElementById("popupimg");
+/* ================= IMAGE POPUP LOGIC ================= */
+const popup = document.getElementById("popup");
+const popupimg = document.getElementById("popupimg");
 
-document.querySelectorAll(".da-track img").forEach(img=>{
-img.onclick=()=>{
-popup.classList.add("show");
-popupimg.src=img.src;
-};
+// Updated to target the new swipe track
+document.querySelectorAll(".da-swipe-track img").forEach(img => {
+  img.onclick = () => {
+    popup.classList.add("show");
+    popupimg.src = img.src;
+  };
 });
-popup.onclick=()=>popup.classList.remove("show");
-  document.getElementById("skillPopup").addEventListener("click",function(e){
- if(e.target === this){
-   this.classList.remove("show");
- }
+
+// Close image popup when clicked
+popup.onclick = () => popup.classList.remove("show");
+
+
+/* ================= SKILL POPUP CLOSE LOGIC ================= */
+// Make sure to keep this part!
+document.getElementById("skillPopup").addEventListener("click", function(e){
+  if(e.target === this){
+    this.classList.remove("show");
+  }
 });
   
 /* ================= SCROLL REVEAL ================= */
@@ -1739,20 +1736,6 @@ window.addEventListener("load", function() {
     setTimeout(() => loader.classList.add("hide"), 300);
   }
 });
-  const posters = document.querySelector(".da-posters");
-const track = document.querySelector(".da-track");
-
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      track.style.animationPlayState = "running";
-    } else {
-      track.style.animationPlayState = "paused";
-    }
-  });
-}, { threshold: 0.3 });
-
-observer.observe(posters);
 </script>
 
 </section>
