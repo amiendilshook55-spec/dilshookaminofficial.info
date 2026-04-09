@@ -416,30 +416,40 @@ text-align:center;
   transform: scale(1.1);
 }
 
-/* ================= POSTER CAROUSEL FIXED ================= */
-.da-carousel{
-overflow:hidden;
-position:relative;
-width:100%;
+/* ================= POSTER CAROUSEL FIXED (OPTIMIZED) ================= */
+.da-carousel {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
 }
 
-.da-track{
-display:flex;
-gap:30px;
-width:max-content;
-animation:da-scroll 45s linear infinite;
+.da-track {
+  display: flex;
+  gap: 30px;
+  width: max-content;
+  /* GPU Acceleration */
+  transform: translate3d(0, 0, 0); 
+  animation: da-scroll 45s linear infinite;
+  will-change: transform;
 }
 
-.da-track img{
-height:320px;
-border-radius:18px;
-cursor:pointer;
-flex-shrink:0;
+.da-track img {
+  height: 320px;
+  border-radius: 18px;
+  cursor: pointer;
+  flex-shrink: 0;
+  /* Prevents mobile flickering */
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
-@keyframes da-scroll{
-0%{transform:translateX(0);}
-100%{transform:translateX(-50%);}
+@keyframes da-scroll {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
+}
+
+@media (max-width: 768px) {
+  .da-track img { height: 240px; } /* Slightly smaller for mobile performance */
 }
 
 /* ================= IMAGE POPUP ================= */
@@ -549,6 +559,16 @@ display:flex;
 .reveal.active{
  opacity:1;
  transform:translateY(0);
+}
+  /* FIX: Stop the posters section from jumping while animating */
+.da-posters.reveal {
+  transform: none !important; 
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.da-posters.reveal.active {
+  opacity: 1;
 }
   /* ===== REMOVE FOOTER WHITE BOX ===== */
 #da-premium footer{
