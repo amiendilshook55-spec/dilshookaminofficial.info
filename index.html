@@ -1427,6 +1427,56 @@ width:100%;
     border-radius: 20px !important;
   }
 }
+  /* ================================================= */
+/* ===== FIX FOR DESIGN WORKS SCROLL LAG ===== */
+/* ================================================= */
+
+/* 1. Stop the scroll reveal from conflicting with the continuous animation */
+.da-posters.reveal {
+  transform: translateZ(0) !important; /* Force its own GPU layer */
+  transition: opacity 0.8s ease-out !important; /* Strictly ONLY transition opacity */
+  will-change: opacity;
+}
+
+/* 2. Contain the carousel so it doesn't force the whole page to repaint */
+.da-carousel {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  contain: paint layout; /* MASSIVE PERFORMANCE BOOST: Isolates the calculations */
+  transform: translateZ(0); 
+}
+
+/* 3. Bulletproof the infinite scroll track */
+.da-track {
+  display: flex;
+  gap: 30px;
+  width: max-content;
+  animation: da-scroll 45s linear infinite;
+  /* Force GPU rendering strictly */
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* 4. Hardware-accelerate the images to stop mobile flickering/stuttering */
+.da-track img {
+  height: 320px;
+  width: auto; /* Fixes layout thrashing */
+  border-radius: 18px;
+  flex-shrink: 0;
+  transform: translateZ(0); 
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* 5. Mobile sizing */
+@media (max-width: 768px) {
+  .da-track img { 
+    height: 240px; 
+  }
+}
 </style>
 
 <div class="da-video-bg"></div>
