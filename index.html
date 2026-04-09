@@ -427,10 +427,16 @@ text-align:center;
   display: flex;
   gap: 30px;
   width: max-content;
-  /* GPU Acceleration */
-  transform: translate3d(0, 0, 0); 
-  animation: da-scroll 45s linear infinite;
+  transform: translate3d(0, 0, 0);
   will-change: transform;
+
+  /* STOP animation by default */
+  animation: none;
+}
+
+/* START animation only when visible */
+.da-posters.active .da-track {
+  animation: da-scroll 45s linear infinite;
 }
 
 .da-track img {
@@ -562,12 +568,11 @@ display:flex;
 }
   /* FIX: Stop the posters section from jumping while animating */
 .da-posters.reveal {
-  transform: none !important; 
+  transform: translateY(40px);
   opacity: 0;
-  transition: opacity 1s ease;
 }
-
 .da-posters.reveal.active {
+  transform: translateY(0);
   opacity: 1;
 }
   /* ===== REMOVE FOOTER WHITE BOX ===== */
@@ -1477,6 +1482,15 @@ width:100%;
     height: 240px; 
   }
 }
+  .da-track img {
+  width: 300px; /* or fixed */
+  height: 320px;
+  object-fit: cover;
+}
+  .da-track {
+  will-change: transform;
+  contain: strict;
+}
 </style>
 
 <div class="da-video-bg"></div>
@@ -1564,25 +1578,25 @@ I have developed the official websites for leading companies in Saudi Arabia, in
 <div class="da-carousel">
 <div class="da-track">
 
-<img src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength__Global_Reach_-1_2__jpg.jpg?v=1772035275">
-<img src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength._Global_Reach.-1_14_.jpg_1.jpg?v=1772035274">
-<img src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength__Global_Reach_-1_1__jpg.jpg?v=1772035274">
-<img src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength__Global_Reach_-1_3__jpg.jpg?v=1772035274">
-<img src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength__Global_Reach_-1_16__jpg.jpg?v=1772035274">
-<img src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/SMG_SAUDI_FOUND_DAY_jpg.jpg?v=1772035274">
-<img src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength._Global_Reach.-1_13_.jpg_1.jpg?v=1772035274">
-<img src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength._Global_Reach.-1_5_.jpg_1.jpg?v=1772035274">
-<img src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength._Global_Reach.-1_8_.jpg_1.jpg?v=1772035274">
+<img loading="lazy" src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength__Global_Reach_-1_2__jpg.jpg?v=1772035275">
+<img loading="lazy" src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength._Global_Reach.-1_14_.jpg_1.jpg?v=1772035274">
+<img loading="lazy" src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength__Global_Reach_-1_1__jpg.jpg?v=1772035274">
+<img loading="lazy" src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength__Global_Reach_-1_3__jpg.jpg?v=1772035274">
+<img loading="lazy" src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength__Global_Reach_-1_16__jpg.jpg?v=1772035274">
+<img loading="lazy" src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/SMG_SAUDI_FOUND_DAY_jpg.jpg?v=1772035274">
+<img loading="lazy" src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength._Global_Reach.-1_13_.jpg_1.jpg?v=1772035274">
+<img loading="lazy" src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength._Global_Reach.-1_5_.jpg_1.jpg?v=1772035274">
+<img loading="lazy" src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength._Global_Reach.-1_8_.jpg_1.jpg?v=1772035274">
 
-<img src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength__Global_Reach_-1_2__jpg.jpg?v=1772035275">
-<img src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength._Global_Reach.-1_14_.jpg_1.jpg?v=1772035274">
-<img src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength__Global_Reach_-1_1__jpg.jpg?v=1772035274">
-<img src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength__Global_Reach_-1_3__jpg.jpg?v=1772035274">
-<img src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength__Global_Reach_-1_16__jpg.jpg?v=1772035274">
-<img src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/SMG_SAUDI_FOUND_DAY_jpg.jpg?v=1772035274">
-<img src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength._Global_Reach.-1_13_.jpg_1.jpg?v=1772035274">
-<img src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength._Global_Reach.-1_5_.jpg_1.jpg?v=1772035274">
-<img src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength._Global_Reach.-1_8_.jpg_1.jpg?v=1772035274">
+<img loading="lazy" src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength__Global_Reach_-1_2__jpg.jpg?v=1772035275">
+<img loading="lazy" src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength._Global_Reach.-1_14_.jpg_1.jpg?v=1772035274">
+<img loading="lazy" src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength__Global_Reach_-1_1__jpg.jpg?v=1772035274">
+<img loading="lazy" src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength__Global_Reach_-1_3__jpg.jpg?v=1772035274">
+<img loading="lazy" src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength__Global_Reach_-1_16__jpg.jpg?v=1772035274">
+<img loading="lazy" src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/SMG_SAUDI_FOUND_DAY_jpg.jpg?v=1772035274">
+<img loading="lazy" src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength._Global_Reach.-1_13_.jpg_1.jpg?v=1772035274">
+<img loading="lazy" src="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength._Global_Reach.-1_5_.jpg_1.jpg?v=1772035274">
+<img loading="lazy" src=="https://cdn.shopify.com/s/files/1/0979/8782/1879/files/Saudi_Strength._Global_Reach.-1_8_.jpg_1.jpg?v=1772035274">
 
 </div>
 </div>
@@ -1729,6 +1743,20 @@ window.addEventListener("load", function() {
     setTimeout(() => loader.classList.add("hide"), 300);
   }
 });
+  const posters = document.querySelector(".da-posters");
+const track = document.querySelector(".da-track");
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      track.style.animationPlayState = "running";
+    } else {
+      track.style.animationPlayState = "paused";
+    }
+  });
+}, { threshold: 0.3 });
+
+observer.observe(posters);
 </script>
 
 </section>
