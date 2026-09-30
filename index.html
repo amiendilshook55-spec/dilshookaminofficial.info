@@ -217,7 +217,7 @@ figure{margin:0}html{scroll-padding-top:100px}h1{font-size:clamp(42px,5.5vw,72px
 /* Main portrait: keep the original photo fully visible with a soft rounded frame like the approved second-image style. */
 .hero-photo{position:relative;width:min(100%,370px);min-height:0;margin-inline:auto;display:flex;align-items:center;justify-content:center;padding:22px 26px 26px;background:#e9dfd4;border:1px solid rgba(255,255,255,.96);border-radius:34px;overflow:hidden;box-shadow:0 18px 42px rgba(59,36,22,.12);isolation:isolate}
 .hero-photo::before,.hero-photo::after{content:none;display:none}
-.hero-photo img{display:block;width:100%;max-width:290px;height:auto;max-height:none;object-fit:contain;object-position:center;background:transparent;filter:none;border:0;border-radius:0}
+.hero-photo img{display:block;width:calc(100% + 8px);max-width:298px;height:auto;max-height:none;object-fit:contain;object-position:center;background:transparent;filter:none;border:0;border-radius:0;margin-inline:-4px}
 .about-photo-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:14px;margin:0 0 26px;align-items:stretch}.about-photo{margin:0;overflow:hidden;border-radius:22px;border:1px solid rgba(255,255,255,.88);background:rgba(255,255,255,.58);box-shadow:var(--soft)}
 .about-photo a{display:block;cursor:zoom-in}
 .about-photo img{width:100%;height:430px;object-fit:contain;object-position:center;background:#e9dfd4}
@@ -229,14 +229,14 @@ figure{margin:0}html{scroll-padding-top:100px}h1{font-size:clamp(42px,5.5vw,72px
 .document-dialog.preview-mode .document-controls{display:none}
 @media(max-width:980px){
   .hero-photo{width:min(100%,355px);padding:20px 22px 24px}
-  .hero-photo img{max-width:278px}
+  .hero-photo img{max-width:286px}
 }
 @media(max-width:720px){
   .hero-grid>div:first-child{text-align:center}
   .hero-grid>div:first-child .eyebrow{justify-content:center}
   .hero-actions,.location{justify-content:center}
   .hero-photo{width:min(84vw,320px);margin-top:8px;padding:18px 18px 22px;border-radius:30px}
-  .hero-photo img{max-width:248px}
+  .hero-photo img{max-width:256px}
   .about-photo-grid{grid-template-columns:1fr 1fr;gap:10px}
   .about-photo img{height:340px}
   .document-stage iframe{min-height:72dvh}
