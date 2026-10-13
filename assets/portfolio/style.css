@@ -142,7 +142,7 @@
     footer{padding:34px 0 50px;color:var(--brown2);font-size:13px}.footer-line{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:24px}
 
     .reveal{opacity:0;transform:translateY(38px);transition:opacity .7s ease,transform .7s ease}.reveal.visible{opacity:1;transform:none}
-    .skip{position:absolute;left:-9999px}.skip:focus{left:14px;top:14px;z-index:999;background:#fff;padding:10px 14px;border-radius:10px}
+    .skip{position:absolute;inset-inline-start:0;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap}.skip:focus{inset-inline-start:14px;top:14px;z-index:999;width:auto;height:auto;clip-path:none;background:#fff;padding:10px 14px;border-radius:10px}
 
     @media(max-width:980px){
       .nav-links{display:none}.hero{min-height:auto}.hero-grid,.head,.systems,.about-grid,.contact-card{grid-template-columns:1fr}.hero-grid{gap:36px}.portrait-stage{min-height:520px;max-width:600px;width:100%;margin:auto}.cards{grid-template-columns:repeat(2,1fr)}.film-grid{grid-template-columns:repeat(2,1fr)}.contact-actions{justify-content:flex-start}
@@ -210,9 +210,9 @@ figure{margin:0}html{scroll-padding-top:100px}h1{font-size:clamp(42px,5.5vw,72px
   .about-photo-grid{max-width:360px;margin-inline:auto}
 }
 @media(max-width:720px){
-  .hero-grid>div:first-child{text-align:center}
-  .hero-grid>div:first-child .eyebrow{justify-content:center}
-  .hero-actions,.location{justify-content:center}
+  .hero-grid>div:first-child{text-align:start}
+  .hero-grid>div:first-child .eyebrow{justify-content:flex-start}
+  .hero-actions,.location{justify-content:flex-start}
   .hero .hero-name{font-size:clamp(48px,14vw,76px);line-height:1;letter-spacing:-2.5px}
   .hero-brandline{font-size:21px}
   .hero-direct-image{width:min(100%,320px)}
@@ -259,11 +259,12 @@ html[lang="ar"] .head{gap:35px}
 html[lang="ar"] .skip:not(:focus){left:0;right:auto;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
 html[lang="ar"] .skip:focus{left:auto;right:14px;top:14px;clip-path:none;width:auto;height:auto}
 @media(max-width:980px){
- html[lang="ar"],html[lang="ar"] body{width:100%;max-width:100%;overflow-x:clip}
+ html,body{width:100%;max-width:100%;overflow-x:hidden;overflow-x:clip}
  html[lang="ar"] .container{width:calc(100% - 26px);max-width:var(--max);min-width:0;margin-inline:auto}
  html[lang="ar"] .hero-grid,html[lang="ar"] .head,html[lang="ar"] .about-grid,html[lang="ar"] .systems,html[lang="ar"] .contact-card{grid-template-columns:minmax(0,1fr)}
  html[lang="ar"] .hero-grid>*,html[lang="ar"] .head>*,html[lang="ar"] .cards>*,html[lang="ar"] .web-grid>*,html[lang="ar"] .film-grid>*,html[lang="ar"] .sample-grid>*,html[lang="ar"] .about-grid>*{min-width:0;max-width:100%}
- html[lang="ar"] .hero-grid,html[lang="ar"] .cards,html[lang="ar"] .web-grid,html[lang="ar"] .film-grid,html[lang="ar"] .sample-grid{width:100%;max-width:100%;min-width:0}
+ html[lang="ar"] .hero-grid{min-width:0}
+ html[lang="ar"] .cards,html[lang="ar"] .web-grid,html[lang="ar"] .film-grid,html[lang="ar"] .sample-grid{width:100%;max-width:100%;min-width:0}
  html[lang="ar"] .hero-direct-image{width:min(100%,390px);margin-inline:auto}
  html[lang="ar"] p,html[lang="ar"] h1,html[lang="ar"] h2,html[lang="ar"] h3{overflow-wrap:break-word}
 }
@@ -276,8 +277,8 @@ html[lang="ar"] .skip:focus{left:auto;right:14px;top:14px;clip-path:none;width:a
  html[lang="ar"] .cards,html[lang="ar"] .web-grid,html[lang="ar"] .film-grid,html[lang="ar"] .experience-grid,html[lang="ar"] .sample-grid{grid-template-columns:minmax(0,1fr)}
  html[lang="ar"] .trust-card{grid-template-columns:repeat(2,minmax(0,1fr))}
  html[lang="ar"] .hero-grid{grid-template-columns:minmax(0,1fr);gap:25px}
- html[lang="ar"] .hero-grid>div:first-child{text-align:center}
- html[lang="ar"] .hero-actions,html[lang="ar"] .location{justify-content:center}
+ html[lang="ar"] .hero-grid>div:first-child{text-align:start}
+ html[lang="ar"] .hero-actions,html[lang="ar"] .location{justify-content:flex-start}
  html[lang="ar"] .hero-direct-image{width:min(100%,320px)}
  html[lang="ar"] #mobile-menu{justify-content:flex-start;direction:rtl}
 }
@@ -286,4 +287,30 @@ html[lang="ar"] .skip:focus{left:auto;right:14px;top:14px;clip-path:none;width:a
  .lang-switch .lang-icon{width:15px;height:15px;flex-basis:15px;margin-inline:3px}
  .lang-switch .lang-icon svg{width:15px;height:15px}
  .nav-shell .brand{font-size:11px}
+}
+
+
+
+/* Keep Arabic lettering connected and all mobile content within its own column. */
+html[lang="ar"] .brand,html[lang="ar"] .tag,html[lang="ar"] .subhead,
+html[lang="ar"] .film-label,html[lang="ar"] .project-tag{letter-spacing:0;text-transform:none}
+@media(max-width:980px){
+  .container{min-width:0}
+  .hero-grid,.head,.systems,.about-grid,.contact-card{grid-template-columns:minmax(0,1fr)}
+  .hero-grid>*,.head>*,.systems>*,.about-grid>*,.contact-card>*,.trust-card>*,.experience-grid>*{min-width:0;max-width:100%}
+  .design-scroll{max-width:100%;min-width:0}
+  .hero-direct-image{justify-self:center;margin-inline:auto}
+}
+@media(max-width:720px){
+  .hero-grid>div:first-child{text-align:left}
+  html[lang="ar"] .hero-grid>div:first-child{text-align:right}
+  .hero-grid{width:calc(100% - 26px);margin-inline:auto}
+  .hero-direct-image{width:min(100%,320px);margin:0 auto;justify-self:center}
+  html[lang="ar"] .hero .hero-name{letter-spacing:0;line-height:1.25;font-size:clamp(42px,12vw,64px)}
+  .hero-copy,.hero-title,.hero-brandline{overflow-wrap:break-word}
+  .hero-actions .btn{max-width:100%;white-space:normal}
+  .web-copy .logo-row{flex-wrap:wrap;gap:12px}
+  .cards,.web-grid,.experience-grid,.film-grid,.sample-grid{grid-template-columns:minmax(0,1fr)}
+  .trust-card{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .contact-actions .btn{max-width:100%}
 }

@@ -1,5 +1,9 @@
 
 (()=>{
+  const isArabic=document.documentElement.lang.startsWith('ar');
+  const labels=isArabic?{enlarge:'تكبير الصفحة',fit:'احتواء الصفحة',page:'الصفحة',of:'من'}:{enlarge:'Enlarge page',fit:'Fit page',page:'page',of:'of'};
+  const numbers=new Intl.NumberFormat(isArabic?'ar-SA':'en-US');
+  const pageStatus=(index,total)=>numbers.format(index)+' '+labels.of+' '+numbers.format(total);
   const dialog=document.getElementById('document-dialog');
   if(!dialog||typeof dialog.showModal!=='function')return;
 
@@ -19,7 +23,7 @@
   const resetSize=()=>{
     stage.dataset.enlarged='false';
     enlarge.setAttribute('aria-pressed','false');
-    enlarge.textContent='Enlarge page';
+    enlarge.textContent=labels.enlarge;
     stage.scrollTop=0;
     stage.scrollLeft=0;
   };
@@ -34,10 +38,10 @@
     dialog.classList.remove('preview-mode');
     pic.width=item.width;
     pic.height=item.height;
-    pic.alt=current.title+' - page '+(page+1)+' of '+current.pages.length;
+    pic.alt=current.title+' — '+labels.page+' '+pageStatus(page+1,current.pages.length);
     pic.src=item.src;
     select.value=String(page);
-    status.textContent=(page+1)+' of '+current.pages.length;
+    status.textContent=pageStatus(page+1,current.pages.length);
     prev.disabled=page===0;
     next.disabled=page===current.pages.length-1;
     resetSize();
@@ -69,7 +73,7 @@
       current.pages.forEach((_,i)=>{
         const option=document.createElement('option');
         option.value=String(i);
-        option.textContent=String(i+1);
+        option.textContent=numbers.format(i+1);
         select.append(option);
       });
       showPage(0);
@@ -87,7 +91,7 @@
     const on=stage.dataset.enlarged!=='true';
     stage.dataset.enlarged=String(on);
     enlarge.setAttribute('aria-pressed',String(on));
-    enlarge.textContent=on?'Fit page':'Enlarge page';
+    enlarge.textContent=on?labels.fit:labels.enlarge;
     stage.scrollTop=0;
     stage.scrollLeft=0;
   });
@@ -96,8 +100,8 @@
   dialog.addEventListener('click',event=>{if(event.target===dialog)dialog.close();});
   dialog.addEventListener('keydown',event=>{
     if(!current?.pages||event.target.tagName==='SELECT'||event.ctrlKey||event.metaKey||event.altKey||stage.dataset.enlarged==='true')return;
-    if(event.key==='ArrowRight'){event.preventDefault();showPage(page+1);}
-    if(event.key==='ArrowLeft'){event.preventDefault();showPage(page-1);}
+    if(event.key===(isArabic?'ArrowLeft':'ArrowRight')){event.preventDefault();showPage(page+1);}
+    if(event.key===(isArabic?'ArrowRight':'ArrowLeft')){event.preventDefault();showPage(page-1);}
   });
 
   dialog.addEventListener('close',()=>{
@@ -112,3 +116,4 @@
     requestAnimationFrame(()=>window.scrollTo({top:documentScrollY,left:0,behavior:'auto'}));
   });
 })();
+

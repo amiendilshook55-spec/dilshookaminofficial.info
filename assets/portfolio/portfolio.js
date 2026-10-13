@@ -1,5 +1,7 @@
 
 (()=>{
+  const isArabic=document.documentElement.lang.startsWith('ar');
+  const videoLabels=isArabic?{fullscreen:'ملء الشاشة',exitFullscreen:'الخروج من ملء الشاشة'}:{fullscreen:'Fullscreen',exitFullscreen:'Exit fullscreen'};
   document.querySelectorAll('[data-year],#year').forEach(el=>el.textContent=new Date().getFullYear());
 
   const toggle=document.querySelector('.menu-toggle');
@@ -97,7 +99,7 @@
     const state=expanded;expanded=null;
     state.player.classList.remove('is-expanded');
     state.player.removeAttribute('role');state.player.removeAttribute('aria-modal');
-    state.button.textContent='Fullscreen';state.button.setAttribute('aria-expanded','false');
+    state.button.textContent=videoLabels.fullscreen;state.button.setAttribute('aria-expanded','false');
     document.body.classList.remove('video-expanded');
     state.disabled.forEach(el=>{el.inert=false;});
     restore(state.saved,state.button);
@@ -123,7 +125,7 @@
     const state={slot,player,button,saved:snapshot(slot),disabled:[],historyKey:null};expanded=state;
     // The slot remains in normal flow, reserving the video's original height.
     player.classList.add('is-expanded');player.setAttribute('role','dialog');player.setAttribute('aria-modal','true');
-    button.textContent='Exit fullscreen';button.setAttribute('aria-expanded','true');
+    button.textContent=videoLabels.exitFullscreen;button.setAttribute('aria-expanded','true');
     document.body.classList.add('video-expanded');
     for(let node=player;node.parentElement&&node!==document.body;node=node.parentElement){
       [...node.parentElement.children].forEach(sibling=>{
@@ -174,3 +176,4 @@
   document.querySelectorAll('.film-fallback').forEach(link=>link.addEventListener('click',()=>stopOthers(null)));
 
 })();
+
