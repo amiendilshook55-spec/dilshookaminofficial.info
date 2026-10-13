@@ -250,3 +250,40 @@ html[lang="ar"] .hero-brandline,html[lang="ar"] .hero-title{line-height:1.6}
 html[lang="ar"] .head{gap:35px}
 @media(max-width:720px){.lang-switch a{font-size:11px;padding:5px}.nav-shell nav{gap:5px}.lang-switch{padding:2px}html[lang="ar"] .hero-grid{gap:26px}}
 @media(max-width:390px){.lang-switch a{font-size:10px;padding:4px}.nav-cta{padding:7px 8px;font-size:10px}.brand{font-size:11px}}
+
+/* rtl-mobile-overflow-fix: preserve the original desktop theme. */
+.lang-switch{position:relative;z-index:2}
+.lang-switch .lang-icon{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;flex:0 0 18px;margin:0 4px 0 6px;color:var(--brown2);pointer-events:none}
+.lang-switch .lang-icon svg{display:block;width:18px;height:18px}
+.lang-switch a{display:inline-flex;align-items:center;justify-content:center;min-height:38px;touch-action:manipulation}
+html[lang="ar"] .skip:not(:focus){left:0;right:auto;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+html[lang="ar"] .skip:focus{left:auto;right:14px;top:14px;clip-path:none;width:auto;height:auto}
+@media(max-width:980px){
+ html[lang="ar"],html[lang="ar"] body{width:100%;max-width:100%;overflow-x:clip}
+ html[lang="ar"] .container{width:calc(100% - 26px);max-width:var(--max);min-width:0;margin-inline:auto}
+ html[lang="ar"] .hero-grid,html[lang="ar"] .head,html[lang="ar"] .about-grid,html[lang="ar"] .systems,html[lang="ar"] .contact-card{grid-template-columns:minmax(0,1fr)}
+ html[lang="ar"] .hero-grid>*,html[lang="ar"] .head>*,html[lang="ar"] .cards>*,html[lang="ar"] .web-grid>*,html[lang="ar"] .film-grid>*,html[lang="ar"] .sample-grid>*,html[lang="ar"] .about-grid>*{min-width:0;max-width:100%}
+ html[lang="ar"] .hero-grid,html[lang="ar"] .cards,html[lang="ar"] .web-grid,html[lang="ar"] .film-grid,html[lang="ar"] .sample-grid{width:100%;max-width:100%;min-width:0}
+ html[lang="ar"] .hero-direct-image{width:min(100%,390px);margin-inline:auto}
+ html[lang="ar"] p,html[lang="ar"] h1,html[lang="ar"] h2,html[lang="ar"] h3{overflow-wrap:break-word}
+}
+@media(max-width:720px){
+ .nav-shell nav{display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"brand language" "menu cta";gap:7px 10px;align-items:center}
+ .nav-shell .brand{grid-area:brand;justify-self:start;min-width:0;max-width:100%;margin:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+ .nav-shell .lang-switch{grid-area:language;justify-self:end}
+ .nav-shell .menu-toggle{grid-area:menu;justify-self:start;min-height:38px}
+ .nav-shell .nav-cta{grid-area:cta;justify-self:end;min-height:38px;margin:0}
+ html[lang="ar"] .cards,html[lang="ar"] .web-grid,html[lang="ar"] .film-grid,html[lang="ar"] .experience-grid,html[lang="ar"] .sample-grid{grid-template-columns:minmax(0,1fr)}
+ html[lang="ar"] .trust-card{grid-template-columns:repeat(2,minmax(0,1fr))}
+ html[lang="ar"] .hero-grid{grid-template-columns:minmax(0,1fr);gap:25px}
+ html[lang="ar"] .hero-grid>div:first-child{text-align:center}
+ html[lang="ar"] .hero-actions,html[lang="ar"] .location{justify-content:center}
+ html[lang="ar"] .hero-direct-image{width:min(100%,320px)}
+ html[lang="ar"] #mobile-menu{justify-content:flex-start;direction:rtl}
+}
+@media(max-width:380px){
+ .lang-switch a{font-size:11px;padding:6px}
+ .lang-switch .lang-icon{width:15px;height:15px;flex-basis:15px;margin-inline:3px}
+ .lang-switch .lang-icon svg{width:15px;height:15px}
+ .nav-shell .brand{font-size:11px}
+}
